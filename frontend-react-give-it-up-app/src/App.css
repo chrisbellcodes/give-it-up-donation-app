@@ -1,0 +1,72 @@
+
+/* <------- Universal ----> */
+  body {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#cb5afc+12,8c04c6+71,8c04c6+72 */
+    height: 100vh;
+    background: #cb5afc; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #cb5afc 12%, #8c04c6 71%, #8c04c6 72%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #cb5afc 12%,#8c04c6 71%,#8c04c6 72%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #cb5afc 12%,#8c04c6 71%,#8c04c6 72%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb5afc', endColorstr='#8c04c6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  }
+
+/* <------- Vice Page ----> */
+
+
+
+#loginForm {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 400px;
+  margin: 7em ;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+#signupForm {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 500px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+
+/* <------- Profile page ----> */
+
+#userNameBox {
+  height: 300px;
+  background-color: gray;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+#userNameBox > div {
+  padding: 10px;
+  margin: auto;
+}
+
+#subscriptionBox {
+  text-align: justify;
+}
+
+.circle {
+  background-color: #FFFFFF;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* <------- Vice Page ----> */
+
+.cardtext {
+  text-align: center;
+}
+
+.card {
+  min-width: 50px
+}
