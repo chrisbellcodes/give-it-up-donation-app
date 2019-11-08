@@ -7,12 +7,14 @@ class HomePage extends React.Component {
 
   render() {
     return(
-      <Container>
+      <React.Fragment>
+      // <Container>
+      <h1>Give up a vice, <br/> Change a life.</h1>
         <div id="loginForm" >
           <Login />
         </div>
-        <h1>Give up a vice, <br/> Change a life.</h1>
-      </Container>
+      // </Container>
+      </React.Fragment>
     )
   }
 
