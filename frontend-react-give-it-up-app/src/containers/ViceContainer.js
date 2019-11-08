@@ -13,7 +13,7 @@ class ViceContainer extends React.Component {
   state = {
     vicesCopy: [],
     categories: [],
-    filter:''
+    filter:'All Vices'
   }
 
   componentDidMount() {
@@ -33,7 +33,11 @@ class ViceContainer extends React.Component {
   }
 
   renderVices = () => {
-    return this.props.vices.map( vice => <Vice key={vice.id} handleClick={this.handleClick} {...vice} /> )
+    let vices = this.props.vices;
+    if(this.state.filter !== "All Vices") {
+      vices = this.props.vices.filter(vice => vice.category.name === this.state.filter );
+    }
+    return vices.map( vice => <Vice key={vice.id} handleClick={this.handleClick} {...vice} /> );
   }
 
   handleFilterChange = (e) => {
@@ -42,14 +46,6 @@ class ViceContainer extends React.Component {
     })
   }
 
-  // filterVices = (vices) => {
-  //   if(this.state.filter !== "All Vices") {
-  //     // return vices.filter(vice => vice.category.name === this.state.filter )
-  //   } else {
-  //     return vices
-  //   }
-  // }
-
   render() {
 
     return (
@@ -57,7 +53,7 @@ class ViceContainer extends React.Component {
       <Container className="pt-5 pb-5">
         <Row>
           <Form className="pr-3">
-            <Form.Control as="select" value={this.state.filter} onChange={this.hand}>
+            <Form.Control as="select" value={this.state.filter} onChange={this.handleFilterChange}>
               <option>All Vices</option>
               {this.state.categories.map(cat => <option key={cat.id} value={cat.name} >{cat.name}</option>)}
             </Form.Control>
