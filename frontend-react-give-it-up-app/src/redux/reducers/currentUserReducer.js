@@ -24,9 +24,9 @@ const currentUserReducer = (state = initialState, action) => {
     case "ADD_VICE_TO_CART":
       return { ...state, cart: [action.vice, ...state.cart] };
     case "REMOVE_VICE_FROM_CART":
-    // const cartArray = [...state.cart];
-    // filteredArr = cartArray.filter(vice => vice.id !== action.vice);
-    // return { ...state, cart: filteredArr };
+      const cartArray = [...state.cart];
+      const filteredArr = cartArray.filter(vice => vice.id !== action.vice.id);
+      return { ...state, cart: filteredArr };
     case "TOTAL_CART":
       return { ...state, cartTotal: action.cartTotal };
     default:

@@ -7,11 +7,9 @@ import CartList from "../components/CartList";
 import Container from "react-bootstrap/Container";
 
 class Cart extends React.Component {
-  removeViceFromCart = vice => {};
-
   calculateCartTotal = cartItems => {
     const total = cartItems.reduce((accum, item) => accum + item.amount, 0);
-    if (this.props.cart.length > 0) {
+    if (this.props.cart.length >= 0) {
       this.props.totalCart(total);
     }
   };
@@ -21,7 +19,10 @@ class Cart extends React.Component {
     return (
       <Container className="pt-5 pb-3">
         <h1>Your Cart of Vices</h1>
-        <CartList cart={this.props.cart} />
+        <CartList
+          cart={this.props.cart}
+          removeVice={this.props.removeViceFromCart}
+        />
         <h5>
           Total Donation: ${this.props.cartTotal ? this.props.cartTotal : 0} a
           month
