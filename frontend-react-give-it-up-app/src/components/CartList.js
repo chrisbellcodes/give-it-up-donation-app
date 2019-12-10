@@ -10,7 +10,7 @@ const CartList = props => {
           <td>{vice.name}</td>
           <td>${vice.amount}</td>
           <td>
-            <Button>Remove Vice</Button>
+            <Button onClick={e => props.removeVice(vice)}>Remove Vice</Button>
           </td>
         </tr>
       );
