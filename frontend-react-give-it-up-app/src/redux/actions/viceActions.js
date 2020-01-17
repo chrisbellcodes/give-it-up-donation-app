@@ -9,7 +9,7 @@ export const getVices = () => dispatch => {
     });
 };
 
-export const createVice = viceData => dispatch => {
+export const createNewVice = viceData => dispatch => {
   fetch("http://localhost:3000/vices", {
     method: "POST",
     headers: {

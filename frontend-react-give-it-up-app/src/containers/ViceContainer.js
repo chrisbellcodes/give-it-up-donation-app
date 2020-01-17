@@ -49,6 +49,11 @@ class ViceContainer extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    console.log();
+    
+  }
+
   render() {
     return (
       <div>

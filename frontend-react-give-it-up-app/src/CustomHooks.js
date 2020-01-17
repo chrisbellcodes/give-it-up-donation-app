@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const useCreateViceForm = (callback) => {
   const [inputs, setInputs] = useState({
-    category_id: null,
+    category_id: '',
     name: '',
     description: '',
     amount: 0
@@ -15,9 +15,13 @@ const useCreateViceForm = (callback) => {
     callback(inputs)
   }
 
-  const handleInputChange = (e, catId) => {
+  const handleInputChange = (e) => {
+    console.log(e.target.parentElement);
     e.persist();
-    setInputs(inputs =>({
+    if(e.target.options) {
+      inputs.category_id = e.target.value ;
+    }
+    setInputs(inputs => ({
       ...inputs,
       [e.target.name]: e.target.value
     }))

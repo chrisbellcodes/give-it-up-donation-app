@@ -4,13 +4,13 @@ import Modal from 'react-bootstrap/Modal'
 import useCreateViceForm from '../CustomHooks'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { createVice } from '../redux/actions/viceActions'
+import { createNewVice } from '../redux/actions/viceActions'
 
 
 const CreateVice = (props) => {
 
   const [show, setShow] = useState(false);
-  const {inputs, handleInputChange, handleSubmit} = useCreateViceForm(createVice);
+  const {inputs, handleInputChange, handleSubmit} = useCreateViceForm(props.createNewVice);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,7 +36,7 @@ const CreateVice = (props) => {
         <Form onSubmit={handleSubmit}>
           <Form.Group>
           <Form.Label>Vice Categories</Form.Label>
-            <Form.Control as="select" value={inputs.category_id} onChange={(e) => handleInputChange(props.categories)}>
+            <Form.Control as="select" value={inputs.category_id} onChange={handleInputChange}>
               {
                 props.categories.map(cat => < option
                     key={cat.id}
@@ -90,11 +90,8 @@ const CreateVice = (props) => {
 
     </React.Fragment>
     );
-
-
 }
 
-
-const mapDispatchToProps= { createVice }
+const mapDispatchToProps = { createNewVice }
 
 export default connect(null, mapDispatchToProps)(CreateVice)

@@ -5,7 +5,7 @@ const vicesReducer = (state=initialState, action) => {
     case 'GET_VICES_SUCCESS':
       return action.vices
     case 'CREATE_VICE_SUCCESS':
-      return {...state, vices: [action.vice, ...state.vices]}
+      return { ...state, vices: [...state.vices, action.vice]}
 
     default:
       return state
