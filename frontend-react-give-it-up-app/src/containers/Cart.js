@@ -8,8 +8,8 @@ import Container from "react-bootstrap/Container";
 
 class Cart extends React.Component {
   calculateCartTotal = cartItems => {
-    const total = cartItems.reduce((accum, item) => accum + item.amount, 0);
     if (this.props.cart.length >= 0) {
+      const total = cartItems.reduce((accum, item) => accum + item.amount, 0);
       this.props.totalCart(total);
     }
   };
