@@ -19,9 +19,11 @@ class StripeController < ApplicationController
   
   #  Creates a plan in Stripe
   def create_plan
+    price = params[:v_amount].to_i
+    price*=100
     plan = Stripe::Plan.create({
         nickname: params[:vice_name],
-        amount: 500, # 3 digits == $X.XX, This also must be a fixed amount. Can NOT pass a params for this value.
+        amount: price, # 3 digits == $X.XX, This also must be a fixed amount. Can NOT pass a params for this value.
         currency: 'usd',
         interval: 'month',
         product: 'prod_H3qIm7DlE17qt9', # Can be found in Stripe daskboard - there is only one product
@@ -46,7 +48,7 @@ def create_sub (stripe_customer, plan_id)
 end
 
   def stripe_params
-    params.permit(:name, :email, :stripe_customer, :plan_id, :vice_name, :vice_amount, :v_description, :metadata)
+    params.permit(:name, :email, :stripe_customer, :plan_id, :vice_name, :v_amount, :v_description, :metadata)
   end
 
 end

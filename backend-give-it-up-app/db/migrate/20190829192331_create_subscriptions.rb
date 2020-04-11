@@ -5,6 +5,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.2]
       t.string :status
       t.references :vice, foreign_key: true
       t.integer :quantity
+      t.string :stripe_sub_id
 
       t.timestamps
     end

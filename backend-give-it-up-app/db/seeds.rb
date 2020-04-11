@@ -1,12 +1,20 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'stripe'
+require 'csv'
+require 'byebug'
+
+Category.destroy_all
+Subscription.destroy_all
+
+vicedata = CSV.parse(File.read(Rails.root.join('lib', 'seeds', 'vicedata.csv')), headers: true, :encoding => 'ISO-8859-1')
+
+Stripe.api_key = "sk_test_5jh2avArQnW4c1z9BOCwxNUu00VuZoIYRw"
+
+# Test User
 chris = User.create(first_name: "Chris", last_name: "Bell", password: "abc123", email: "cdangelobell@gmail.com")
 
+# Seed Materials
 smoking = Category.create(name: "Smoking")
 fast_foods = Category.create(name: "Fast Foods")
 bev_non = Category.create(name: "Beverages: Non-alcoholic")
@@ -16,66 +24,22 @@ sweets = Category.create(name: "Sweets")
 bev_al = Category.create(name: "Beverages: Alcoholic")
 misc = Category.create(name: "Misc.")
 
+# Seed Vices
+def create_vices vicedata
+    cats = Category.all
+    cats.each do | cat |
+        vices = vicedata.select { |data| cat.name == data["category" ]}
+        vices.each do |data|
+            Vice.create(
+                name: data["name"],
+                description: data["description"],
+                amount: data["amount"].to_i,
+                category_id: cat.id
+            )
+        end
+    end
+end
 
-
-
-
-
-
-
-# Vice.create( name:  "Marlboro", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Juul", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15.99	, category_id: smoking.id)
-# Vice.create( name:  "Parliament", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	14	, category_id: smoking.id)
-# Vice.create( name:  "Vogue", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: smoking.id)
-# Vice.create( name:  "American Spirits", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: smoking.id)
-# Vice.create( name:  "Camel", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Camel Light", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Cool", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Maverick", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# newports = Vice.create( name:  "Newport", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Basic", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: smoking.id)
-# Vice.create( name:  "Swisher Sweets", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: smoking.id)
-# Vice.create( name:  "McDonalds", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: fast_foods.id)
-# Vice.create( name:  "Chik-fil-A", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	13	, category_id: fast_foods.id)
-# Vice.create( name:  "Checkers", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	9	, category_id: fast_foods.id)
-# Vice.create( name:  "Wendys", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	11	, category_id: fast_foods.id)
-# Vice.create( name:  "Burger King", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	9	, category_id: fast_foods.id)
-# Vice.create( name:  "Popeye's Chicken", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	12	, category_id: fast_foods.id)
-# Vice.create( name:  "KFC", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: fast_foods.id)
-# Vice.create( name:  "Taco Bell", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: fast_foods.id)
-# Vice.create( name:  "Dunkin", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	5	, category_id: fast_foods.id)
-# Vice.create( name:  "White Castle", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	8	, category_id: fast_foods.id)
-# Vice.create( name:  "Shake Shack", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: fast_foods.id)
-# Vice.create( name:  "Papa Johns", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	17	, category_id: fast_foods.id)
-# Vice.create( name:  "That Fancy NYC Slice", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	7	, category_id: fast_foods.id)
-# Vice.create( name:  "Chinese Takeout", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: fast_foods.id)
-# Vice.create( name:  "Venti Starbucks Coffee", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	6	, category_id: bev_non.id)
-# Vice.create( name:  "Jamba Juice Smoothie", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	8	, category_id: bev_non.id)
-# Vice.create( name:  "Cold Pressed Juice", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	9.5	, category_id: bev_non.id)
-# Vice.create( name:  "Frappuccino", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	6	, category_id: bev_non.id)
-# Vice.create( name:  "New York Sports Club", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	69.99	, category_id: memberships.id)
-# Vice.create( name:  "Blink", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: memberships.id)
-# Vice.create( name:  "Planet Fitness", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: memberships.id)
-# Vice.create( name:  "Equinox", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	189	, category_id: memberships.id)
-# Vice.create( name:  "Gold's Gym", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	70	, category_id: memberships.id)
-# Vice.create( name:  "Bacon of the Month Club", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: memberships.id)
-# Vice.create( name:  "Sausage of the Month Club", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: memberships.id)
-# Vice.create( name:  "Porn Subscription", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: memberships.id)
-# Vice.create( name:  "Spectrum Cable TV", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	69	, category_id: memberships.id)
-# Vice.create( name:  "Lottery Ticket", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	5	, category_id: gambling.id)
-# Vice.create( name:  "The Slots", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: gambling.id)
-# Vice.create( name:  "The Black Jack Table", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	20	, category_id: gambling.id)
-# Vice.create( name:  "Horse Races", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	50	, category_id: gambling.id)
-# Vice.create( name:  "Chip Cookies", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	12	, category_id: sweets.id)
-# Vice.create( name:  "The Cronut", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	9	, category_id: sweets.id)
-# Vice.create( name:  "Melissa's Cupcakes", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	12	, category_id: sweets.id)
-# Vice.create( name:  "Magnolia Bekery Cupcakes", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: sweets.id)
-# Vice.create( name:  "Gin and Tonic", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	12	, category_id: bev_al.id)
-# Vice.create( name:  "Jack Daneils on the rocks", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: bev_al.id)
-# Vice.create( name:  "Mezcal Negroni", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	15	, category_id: bev_al.id)
-# Vice.create( name:  "Pina Colata", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	14	, category_id: bev_al.id)
-# Vice.create( name:  "Mike's Hard Lemonade (6 pk)", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	11	, category_id: bev_al.id)
-# Vice.create( name:  "Domestic Lager (1 pint)", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	8	, category_id: bev_al.id)
-# Vice.create( name:  "Belgum Beer (1 pint)", description: "Lorem ipsum dolor sit amet, ut affert moderatius eam, te scripta gloriatur sed.", amount: 	10	, category_id: bev_al.id)
+create_vices(vicedata)
 
 sub = Subscription.create(user_id: chris.id, vice_id: newports.id, status: "Active")

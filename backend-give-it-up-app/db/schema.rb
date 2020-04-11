@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_192331) do
     t.string "status"
     t.bigint "vice_id"
     t.integer "quantity"
+    t.string "stripe_sub_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_192331) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.string "stripe_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_08_29_192331) do
     t.string "name"
     t.string "description"
     t.integer "amount"
+    t.string "stripe_plan_id"
+    t.string "stripe_plan_interval"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
