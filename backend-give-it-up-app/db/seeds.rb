@@ -5,7 +5,7 @@ require 'csv'
 require 'byebug'
 Stripe.api_key = "sk_test_5jh2avArQnW4c1z9BOCwxNUu00VuZoIYRw"
 
-def delete_plans_from_stripe
+def delete_plans_from_stripe #currently only deletes 10 at a time
     plans = Stripe::Plan.list()
     plans.each do |plan|
         Stripe::Plan.delete(plan.id)
@@ -18,8 +18,8 @@ Vice.destroy_all
 Category.destroy_all
 Subscription.destroy_all
 
+# Imports vicedata for creating vices
 vicedata = CSV.parse(File.read(Rails.root.join('lib', 'seeds', 'vicedata.csv')), headers: true, :encoding => 'ISO-8859-1')
-
 
 # Test User
 chris = User.create(first_name: "Chris", last_name: "Bell", password: "abc123", email: "cdangelobell@gmail.com")
