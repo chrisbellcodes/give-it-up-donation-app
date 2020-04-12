@@ -76,4 +76,5 @@ end
 seed_db_w_vices(vicedata)
 seed_stripe_w_plans()
 
+
 sub = Subscription.create(user_id: chris.id, vice_id: 27, status: "Active")
