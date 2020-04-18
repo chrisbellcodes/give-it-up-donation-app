@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if user.valid?
       customer = CustomerCreater.call(user_name, user.email)
       user.update(stripe_customer_id: customer.id)
-      byebug
       # Encoding user id to encrypt using JWT (check ApplicationController)
       render json: { token: encode_token(user) }
     else

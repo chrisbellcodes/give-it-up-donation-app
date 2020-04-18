@@ -13,7 +13,9 @@ class VicesController < ApplicationController
 
   def create
     vice = Vice.new(vice_params)
+    # byebug
     if vice.save
+      PlanCreater.call(vice)
       render json: vice
     else
       render json: {message: "Ya messed up."}

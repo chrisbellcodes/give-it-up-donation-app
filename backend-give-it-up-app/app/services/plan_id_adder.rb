@@ -1,10 +1,5 @@
-require 'stripe'
-require 'byebug'
-
 class PlanIdAdder < ApplicationService
     attr_reader :vices
-
-    Stripe.api_key = "sk_test_5jh2avArQnW4c1z9BOCwxNUu00VuZoIYRw"
 
     def initialize(vices)
         @vices = vices

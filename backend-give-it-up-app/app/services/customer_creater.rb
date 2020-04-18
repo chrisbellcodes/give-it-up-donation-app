@@ -1,9 +1,5 @@
-require 'stripe'
-
 class CustomerCreater < ApplicationService
     attr_reader :user_name, :user_email
-
-    Stripe.api_key = "sk_test_5jh2avArQnW4c1z9BOCwxNUu00VuZoIYRw"
     
     def initialize(user_name, user_email)
         @user_name = user_name
