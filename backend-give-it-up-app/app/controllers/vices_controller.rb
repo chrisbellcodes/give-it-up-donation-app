@@ -2,6 +2,7 @@ class VicesController < ApplicationController
 
   def index
     vices = Vice.all
+    PlanIdAdder.call(vices)
     render json: vices
   end
 

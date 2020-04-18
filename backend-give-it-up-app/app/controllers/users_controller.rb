@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
   def create
+
     user = User.create(user_params)
+    user_name = "#{user.first_name} #{user.last_name}"
+
     if user.valid?
+      customer = CustomerCreater.call(user_name, user.email)
+      user.update(stripe_customer_id: customer.id)
+      byebug
       # Encoding user id to encrypt using JWT (check ApplicationController)
       render json: { token: encode_token(user) }
     else

@@ -1,9 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-require 'stripe'
 require 'csv'
-require 'byebug'
 
+User.destroy_all
 Vice.destroy_all
 Category.destroy_all
 Subscription.destroy_all
@@ -36,11 +35,13 @@ def seed_db_w_vices vicedata
                 description: data["description"],
                 amount: data["amount"].to_i,
                 category_id: cat.id
-            )
+                )
+            end
         end
     end
-end
+    
+    seed_db_w_vices(vicedata)
+    
 
-seed_db_w_vices(vicedata)
 
 sub = Subscription.create(user_id: chris.id, vice_id: 27, status: "Active")

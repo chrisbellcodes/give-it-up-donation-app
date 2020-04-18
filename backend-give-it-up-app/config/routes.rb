@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "/profile", to: "users#profile"
 
   #stripe routes
-  post "/create-customer", to: "stripe#create_customer"
-  post "create-plan", to: "stripe#create_plan"
+  # post "/create-customer", to: "stripe#create_customer"
+  # post "create-plan", to: "stripe#create_plan"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
