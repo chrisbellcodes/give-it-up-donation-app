@@ -5,6 +5,8 @@ import { removeViceFromCart } from "../redux/actions/cartActions";
 import withAuth from "../hoc/withAuth";
 import CartList from "../components/CartList";
 import Container from "react-bootstrap/Container";
+import CheckoutForm from "../components/CheckoutForm";
+
 
 class Cart extends React.Component {
   calculateCartTotal = cartItems => {
@@ -17,6 +19,7 @@ class Cart extends React.Component {
   render() {
     this.calculateCartTotal(this.props.cart);
     return (
+      <React.Fragment>
       <Container className="pt-5 pb-3">
         <h1>Your Cart of Vices</h1>
         <CartList
@@ -28,6 +31,10 @@ class Cart extends React.Component {
           month
         </h5>
       </Container>
+        <Container className="checkoutForm">
+        <CheckoutForm />
+      </Container>
+      </React.Fragment>
     );
   }
 }

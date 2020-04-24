@@ -15,7 +15,8 @@ class VicesController < ApplicationController
     vice = Vice.new(vice_params)
     # byebug
     if vice.save
-      PlanCreater.call(vice)
+      plan = PlanCreater.call(vice)
+      vice.update(stripe_plan_id: plan.index)
       render json: vice
     else
       render json: {message: "Ya messed up."}

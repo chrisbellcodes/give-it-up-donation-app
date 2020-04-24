@@ -12,8 +12,10 @@ class PlanIdAdder < ApplicationService
                 plan = plans["data"].find do |p| 
                     p.nickname == vice.name 
                 end
-                vice.update(stripe_plan_id: plan.id)
-                vice.save
+                if plan != nil
+                    vice.update(stripe_plan_id: plan.id)
+                    vice.save
+                end
             end
         end
 
