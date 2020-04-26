@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import { signup } from '../redux/actions/userActions'
+import { signup, getCurrentUser } from '../redux/actions/userActions'
 import { Redirect } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
@@ -19,6 +19,9 @@ class Signup extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.signup(this.state.first_name, this.state.last_name, this.state.email, this.state.password)
+    if(localStorage.token) {
+      this.props.history.push('/profile')
+    }
   }
 
   handleChange = (e) => {
@@ -95,7 +98,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  signup: signup
+  signup: signup,
+  getCurrentUser: getCurrentUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

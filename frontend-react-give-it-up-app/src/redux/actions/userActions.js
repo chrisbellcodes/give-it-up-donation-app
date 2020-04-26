@@ -40,6 +40,8 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
 )
   .then(res => res.json())
   .then(data => {
+    console.log(data);
+    
     if(data.token) {
       localStorage.token = data.token
       dispatch({ type: "SIGNUP_REQ_SUCCESS" })
@@ -47,7 +49,7 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
   })
 }
 
-export const getCurrentUser = () => dispatch => {
+export const getCurrentUser = () => dispatch => { 
   dispatch({ type: "PROFILE_REQUEST_START" })
   fetch('http://localhost:3000/profile', {
     headers: {
