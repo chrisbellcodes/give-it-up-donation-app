@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+  devise_for :users,
+              path: '',
+               path_names: {
+                 sign_in: 'login',
+                 sign_out: 'logout',
+                 registration: 'signup'
+               },
+               controllers: {
+                 sessions: 'sessions',
+                 registrations: 'registrations'
+               }
+
+  resources :users
   resources :categories
   resources :vices
   resources :subscriptions
-  resources :users
-
-  #Auth Routes
-  post "/login", to: "auth#create"
-  post "/signup", to: "users#create"
-  get "/profile", to: "users#profile"
-
   
+  root 'vices#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

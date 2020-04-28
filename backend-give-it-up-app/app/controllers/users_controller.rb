@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     user = User.create(user_params)
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-
+    render json: current_user
   end
 
   private

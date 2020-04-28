@@ -255,7 +255,18 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
+  
+  # ==> JWT Configuration
+  config.jwt do |jwt|
+  jwt.secret = ENV['DEVISE_SECRET_KEY']
+  jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+  jwt.expiration_time = 1.day.to_i
+end
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

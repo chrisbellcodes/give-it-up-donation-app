@@ -10,8 +10,6 @@ Subscription.destroy_all
 # Imports vicedata for creating vices
 vicedata = CSV.parse(File.read(Rails.root.join('lib', 'seeds', 'vicedata.csv')), headers: true, :encoding => 'ISO-8859-1')
 
-# Test User
-chris = User.create(first_name: "Chris", last_name: "Bell", password: "abc123", email: "cdangelobell@gmail.com")
 
 # Seed Categories
 smoking = Category.create(name: "Smoking")
@@ -43,5 +41,3 @@ def seed_db_w_vices vicedata
     seed_db_w_vices(vicedata)
     
 
-
-sub = Subscription.create(user_id: chris.id, vice_id: 27, status: "Active")
