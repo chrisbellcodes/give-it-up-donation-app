@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 class Login extends React.Component {
 
   state = {
-    first_name: '',
+    email: '',
     password: ''
   }
 
@@ -38,9 +38,9 @@ class Login extends React.Component {
           <Form.Label>First Name</Form.Label>
             <Form.Control
                 type="text"
-                name="first_name"
-                placeholder="Enter your name"
-                value={this.state.firstName}
+                name="email"
+                placeholder="Enter your email"
+                value={this.state.email}
                 onChange={this.handleChange}
                 />
         </Form.Group>

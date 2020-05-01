@@ -8,16 +8,19 @@ export const logIn = (firstName, password) => dispatch => {
     Accept: "application/json",
   },
   body: JSON.stringify({
-    "first_name": firstName,
+    "email": email,
     "password": password
   })
 }
 )
 .then(res => res.json())
-.then(data => {
-  if(data.token) {
-    localStorage.token = data.token;
-    dispatch({ type: 'LOGIN_REQUEST_SUCCESS' })
+.then(user => {
+  if(user) {
+    console.log('login data:', user)
+      dispatch({
+        type: "LOGIN_REQUEST_SUCCESS",
+        user: user
+      })
     }
   })
 }
@@ -40,10 +43,10 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
 )
   .then(res => res.json())
   .then(data => {
-    console.log(data);
+    console.log("signup data:", data);
     
-    if(data.token) {
-      localStorage.token = data.token
+    if(data) {
+      // localStorage.token = data.token
       dispatch({ type: "SIGNUP_REQ_SUCCESS" })
     }
   })

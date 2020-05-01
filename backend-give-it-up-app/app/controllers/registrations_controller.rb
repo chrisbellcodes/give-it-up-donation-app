@@ -3,7 +3,6 @@ class RegistrationsController < Devise::SessionsController
 
   def create
     user = User.create(sign_up_params)
-    puts resource
     render json: user
   end
 
