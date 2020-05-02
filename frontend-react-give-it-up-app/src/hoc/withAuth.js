@@ -7,10 +7,10 @@ export default function withAuth (ComponentToWrap) {
 
   class DummyComponent extends React.Component {
     componentDidMount() {
-      if (!localStorage.token) {
-        this.props.history.push('/')
+      if (this.props.loggedIn) {
+        this.props.history.push('/profile')
       } else {
-        this.props.setCurrentUser()
+        this.props.history.push('/')
       }
     }
 
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    setCurrentUser: getCurrentUser
+    // setCurrentUser: getCurrentUser
 }
 
 return withRouter(

@@ -19,9 +19,7 @@ class Signup extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.signup(this.state.first_name, this.state.last_name, this.state.email, this.state.password)
-    if(localStorage.token) {
-      this.props.history.push('/profile')
-    }
+    this.props.history.push('/profile')
   }
 
   handleChange = (e) => {
@@ -32,10 +30,6 @@ class Signup extends React.Component {
   }
 
   render() {
-
-    if (localStorage.token) {
-      return <Redirect to="/profile" />
-    }
 
     return (
       <div id="signupForm">
@@ -98,8 +92,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  signup: signup,
-  getCurrentUser: getCurrentUser
+  signup: signup
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

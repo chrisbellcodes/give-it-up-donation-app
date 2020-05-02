@@ -8,12 +8,12 @@ class HomePage extends React.Component {
   render() {
     return(
       <React.Fragment>
-      // <Container>
+       <Container>
       <h1>Give up a vice, <br/> Change a life.</h1>
         <div id="loginForm" >
           <Login />
         </div>
-      // </Container>
+       </Container>
       </React.Fragment>
     )
   }

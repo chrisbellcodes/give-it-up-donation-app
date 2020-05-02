@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
+import withAuth from "../hoc/withAuth"
 import { withRouter, Redirect } from 'react-router-dom'
 import { logIn } from '../redux/actions/userActions'
 import Form from 'react-bootstrap/Form'
@@ -13,9 +14,17 @@ class Login extends React.Component {
     password: ''
   }
 
+  componentDidUpdate() {
+    console.log("yas");
+    console.log(this.props.user.loggedIn);
+    if (this.props.user.loggedIn) {
+      this.props.history.push('/vices')
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.logIn(this.state.first_name, this.state.password)
+    this.props.logIn(this.state.email, this.state.password)
   }
 
   handleChange = (e) => {
@@ -26,7 +35,9 @@ class Login extends React.Component {
   }
 
   render() {
-    if (localStorage.token) {
+    if (this.props.loggedIn) {
+      console.log(this.props.loggedIn);
+      
       return <Redirect to="/profile" />
     }
 
@@ -64,18 +75,19 @@ class Login extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.currentUser
   }
 }
 
 const mapDispatchToProps = {
-  logIn: logIn
+  logIn: logIn,
 }
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login))
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(Login)
+)
