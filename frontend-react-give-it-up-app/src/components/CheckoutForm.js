@@ -30,7 +30,6 @@ const CheckoutForm = ({ currentUser, history }) => {
         return result.json();
       }).then(function (data) {
         // The customer has been created
-        console.log(data);
       });
     }
   }
