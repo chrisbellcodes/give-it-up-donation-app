@@ -1,0 +1,24 @@
+{
+  "name": "give-it-up-donation-app",
+  "version": "1.0.0",
+  "description": "Give up a vice, change a life.",
+  "engines": {
+    "node": "12.6.0"
+  },
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ..",
+    "deploy": "cp -a frontend/build/. server/public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisbellcodes/give-it-up-donation-app.git"
+  },
+  "author": "Chris Bell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisbellcodes/give-it-up-donation-app/issues"
+  },
+  "homepage": "https://github.com/chrisbellcodes/give-it-up-donation-app#readme"
+}
