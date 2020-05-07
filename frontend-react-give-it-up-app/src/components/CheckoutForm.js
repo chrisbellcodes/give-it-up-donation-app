@@ -1,15 +1,15 @@
 import React from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { connect } from "react-redux";
-import withAuth from "../hoc/withAuth";
+import { withRouter } from 'react-router-dom'
 
 import CardSection from './CardSection';
 
-const CheckoutForm = ({ currentUser }) => {
+const CheckoutForm = ({ currentUser, history }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  function stripePaymentMethodHandler(result, user_id, cart) {
+  function stripePaymentMethodHandler(result, cart) {
     const planIds = cart.map(plan => {
       return plan.stripe_plan_id
     });
@@ -22,15 +22,15 @@ const CheckoutForm = ({ currentUser }) => {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          user_id: user_id,
+          email: currentUser.email,
           plans: planIds,
           payment_method: result.paymentMethod.id
         }),
       }).then(function (result) {
         return result.json();
-      }).then(function (customer) {
+      }).then(function (data) {
         // The customer has been created
-        
+        console.log(data);
       });
     }
   }
@@ -51,10 +51,10 @@ const CheckoutForm = ({ currentUser }) => {
         email: currentUser.email,
       },
     });
-
-    console.log(result);
     
-    stripePaymentMethodHandler(result, currentUser.id, currentUser.cart);
+    stripePaymentMethodHandler(result, currentUser.cart);
+     history.push('/profile')
+    
   };
 
   return (
@@ -74,10 +74,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default withAuth(
-  connect(
+export default withRouter(
+    connect(
     mapStateToProps,
     null
   )(CheckoutForm)
-)
+  )
 

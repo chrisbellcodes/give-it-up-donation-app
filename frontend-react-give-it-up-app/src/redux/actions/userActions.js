@@ -53,18 +53,16 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
 }
 // Not needed because login and signup actions pull user data. 
 // May need to refacter this to update user info after payment.
-    // export const getCurrentUser = () => dispatch => { 
-    //   dispatch({ type: "PROFILE_REQUEST_START" })
-    //   fetch('http://localhost:3000/profile', {
-    //     headers: {
-    //         Authorization: `${localStorage.token}`
-    //     }
-    //   })
-    //     .then(res => res.json())
-    //     .then(user => {
-    //       dispatch({
-    //         type: "PROFILE_SUCCESS",
-    //         user: user
-    //       })
-    //     })
-    // }
+    export const getCurrentUser = () => dispatch => { 
+      dispatch({ type: "PROFILE_REQUEST_START" })
+      fetch('http://localhost:3000/profile', {
+        headers: {}
+      })
+        .then(res => res.json())
+        .then(user => {
+          dispatch({
+            type: "PROFILE_SUCCESS",
+            user: user
+          })
+        })
+    }

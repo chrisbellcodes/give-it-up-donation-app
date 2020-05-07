@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
 import { signup, getCurrentUser } from '../redux/actions/userActions'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
@@ -16,10 +16,15 @@ class Signup extends React.Component {
     password: ''
   }
 
+  componentDidUpdate() {
+    if (this.props.user.loggedIn) {
+      this.props.history.push('/vices')
+    }
+  } 
+
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.signup(this.state.first_name, this.state.last_name, this.state.email, this.state.password)
-    this.props.history.push('/profile')
   }
 
   handleChange = (e) => {
@@ -95,4 +100,9 @@ const mapDispatchToProps = {
   signup: signup
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+    )(Signup)
+  )

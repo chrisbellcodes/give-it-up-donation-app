@@ -60,7 +60,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    // setCurrentUser: getCurrentUser
+    setCurrentUser: getCurrentUser
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(UserProfile)))

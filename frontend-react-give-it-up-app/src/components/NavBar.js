@@ -23,7 +23,7 @@ const NavBar = (props) => {
 
           {!props.loggedIn ? null :
             <Nav.Item>
-              <Nav.Link as={Link} to='/Cart'>Cart {props.cart.length > 0 ? `(${props.cart.length})` : null}</Nav.Link>
+              <Nav.Link as={Link} to='/cart'>Cart {props.cart.length > 0 ? `(${props.cart.length})` : null}</Nav.Link>
             </Nav.Item>}
 
           {props.loggedIn ? null :

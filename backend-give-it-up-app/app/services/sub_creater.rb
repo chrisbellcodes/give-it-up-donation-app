@@ -13,7 +13,6 @@ class SubCreater < ApplicationService
                 plan: plan_id
             }
         end
-        puts list
         subscription = Stripe::Subscription.create(
         customer: stripe_customer_id,
         items: list,
