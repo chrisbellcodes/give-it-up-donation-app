@@ -7,8 +7,8 @@
   },
   "scripts": {
     "build": "cd frontend && npm install && npm run build && cd ..",
-    "deploy": "cp -a frontend/build/. server/public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "deploy": "cp -a frontend/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Frontend built!'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
