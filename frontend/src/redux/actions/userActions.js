@@ -1,7 +1,8 @@
+const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const logIn = (email, password) => dispatch => {
   dispatch({ type: 'LOGIN_REQUEST_START'})
-  fetch('http://localhost:3000/login', {
+  fetch(`${REACT_APP_BASE_URL}/login`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -26,7 +27,7 @@ export const logIn = (email, password) => dispatch => {
 
 export const signup = (first_name, last_name, email, password) => dispatch => {
   dispatch({ type: 'SIGNUP_REQ_START'})
-  fetch('http://localhost:3000/signup', {
+  fetch(`${REACT_APP_BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +56,7 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
 // May need to refacter this to update user info after payment.
     export const getCurrentUser = () => dispatch => { 
       dispatch({ type: "PROFILE_REQUEST_START" })
-      fetch('http://localhost:3000/profile', {
+      fetch(`${REACT_APP_BASE_URL}/profile`, {
         headers: {}
       })
         .then(res => res.json())

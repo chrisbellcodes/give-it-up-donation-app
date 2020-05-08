@@ -15,8 +15,6 @@ class Login extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("yas");
-    console.log(this.props.user.loggedIn);
     if (this.props.user.loggedIn) {
       this.props.history.push('/vices')
     }

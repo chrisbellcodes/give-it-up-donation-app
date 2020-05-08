@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/chrisbellcodes/give-it-up-donation-app/issues"
   },
-  "homepage": "https://github.com/chrisbellcodes/give-it-up-donation-app#readme"
+  "homepage": "https://github.com/chrisbellcodes/give-it-up-donation-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }

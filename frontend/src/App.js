@@ -12,6 +12,7 @@ import ViceContainer from "./containers/ViceContainer";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
+require("dotenv").config();
 const stripePromise = loadStripe("pk_test_Z9iIEsJMJPXWMNnI2ntNh2cc00IsMY5one");
 
 class App extends React.Component {
