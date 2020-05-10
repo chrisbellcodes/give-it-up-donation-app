@@ -1,7 +1,7 @@
 const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const getVices = () => dispatch => {
-  fetch(`${REACT_APP_BASE_URL}/vices`)
+  fetch(`/vices`)
     .then((res) => res.json())
     .then((vices) => {
       dispatch({
@@ -12,7 +12,7 @@ export const getVices = () => dispatch => {
 };
 
 export const createNewVice = viceData => dispatch => {
-  fetch(`${REACT_APP_BASE_URL}/vices`, {
+  fetch(`/vices`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

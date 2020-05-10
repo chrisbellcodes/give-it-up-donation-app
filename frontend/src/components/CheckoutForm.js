@@ -18,7 +18,7 @@ const CheckoutForm = ({ currentUser, history }) => {
       // Show error in payment form
     } else {
       // Otherwise send paymentMethod.id to your server
-      fetch('http://localhost:3000/subscriptions', {
+      fetch('/subscriptions', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
