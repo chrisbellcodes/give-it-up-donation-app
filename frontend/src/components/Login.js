@@ -39,7 +39,7 @@ class Login extends React.Component {
         <h2 className="d-flex justify-content-center pt" >Login</h2>
         <Form onSubmit={this.handleSubmit}>
         <Form.Group as={Col}>
-          <Form.Label>First Name</Form.Label>
+          <Form.Label>Email Address</Form.Label>
             <Form.Control
                 type="text"
                 name="email"
