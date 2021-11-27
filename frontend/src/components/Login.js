@@ -35,7 +35,7 @@ class Login extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="login-form">
         <h2 className="d-flex justify-content-center pt" >Login</h2>
         <Form onSubmit={this.handleSubmit}>
         <Form.Group as={Col}>

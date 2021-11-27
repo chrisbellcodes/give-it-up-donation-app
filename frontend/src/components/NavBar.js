@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav'
 const NavBar = (props) => {
 
   return(
-    <Navbar bg="dark" variant="dark">
+    <Navbar className="nav-bar">
       <Navbar.Brand>Give it Up</Navbar.Brand>
         <Nav>
           {props.loggedIn ?
