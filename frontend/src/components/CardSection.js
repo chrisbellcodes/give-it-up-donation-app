@@ -23,10 +23,10 @@ const CARD_ELEMENT_OPTIONS = {
 
 function CardSection() {
     return (
-        <label>
-            Card Details
+        <div className='check-out__input-label-container'>
+            <label className='check-out-input-label'>Card Details</label>
             <CardElement className="StripeElement" options={CARD_ELEMENT_OPTIONS} />
-        </label>
+        </div>
     );
 };
 

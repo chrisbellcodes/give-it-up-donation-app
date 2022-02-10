@@ -59,9 +59,11 @@ const CheckoutForm = ({ currentUser, history }) => {
   return (
     <form onSubmit={handleSubmit}>
       <CardSection />
-      <button type="submit" disabled={!stripe}>
-        Subscribe
-      </button>
+      <div className='btn-container'>
+        <button className='giu-btn btn btn-info' type="submit" disabled={!stripe}>
+          Subscribe
+        </button>
+      </div>
     </form>
   );
 }
@@ -79,4 +81,5 @@ export default withRouter(
     null
   )(CheckoutForm)
   )
+
 

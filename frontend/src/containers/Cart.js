@@ -6,6 +6,7 @@ import withAuth from "../hoc/withAuth";
 import CartList from "../components/CartList";
 import Container from "react-bootstrap/Container";
 import CheckoutForm from "../components/CheckoutForm";
+import CheckOutPage from "./CheckOutPage";
 
 
 class Cart extends React.Component {
@@ -30,8 +31,8 @@ class Cart extends React.Component {
           <span>Total Donation:</span> ${this.props.cartTotal ? this.props.cartTotal : 0} /month
         </h5>
       </Container>
-        <Container className="checkoutForm">
-        <CheckoutForm />
+      <Container className="checkout-btn-container">
+        <CheckOutPage />
       </Container>
       </React.Fragment>
     );

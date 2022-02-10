@@ -21,6 +21,8 @@ button.gui-btn.btn.btn-info:hover {
 
 
 
+
+
 /* <------- NAV BAR ----> */
 nav.nav-bar.navbar.navbar-expand.navbar-light {
     justify-content: space-between;
@@ -273,5 +275,35 @@ th.cl-table-header__text {
 }
 
 .cart-total span {
+    font-weight: 800;
+}
+
+/* <<<<<<  Check Out >>>>>> */
+.checkout-btn-container.container {
+    display: flex;
+    justify-content: end;
+}
+
+button.check-out-btn.btn.btn-dark {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.check-out__body .btn-container {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.check-out__header.modal-header {
+    background-color: black;
+    color: white;
+}
+
+.check-out__header button.close {
+    color: white;
+}
+
+label.check-out-input-label {
     font-weight: 800;
 }
