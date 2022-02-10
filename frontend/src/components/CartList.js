@@ -6,11 +6,11 @@ const CartList = props => {
   const renderVices = () => {
     return props.cart.map(vice => {
       return (
-        <tr key={vice.id}>
-          <td>{vice.name}</td>
-          <td>${vice.amount}</td>
-          <td>
-            <Button onClick={e => props.removeVice(vice)}>Remove Vice</Button>
+        <tr className="cart-list__row" key={vice.id}>
+          <td className="cl-col__text">{vice.name}</td>
+          <td className="cl-col__text">${vice.amount}</td>
+          <td className="cl-remove-btn-container">
+            <Button className="cart-list__remove-btn" onClick={e => props.removeVice(vice)}>Remove Vice</Button>
           </td>
         </tr>
       );
@@ -19,12 +19,12 @@ const CartList = props => {
 
   return (
     <React.Fragment>
-      <Table striped bordered hover variant="dark">
+      <Table className="cl-table" striped bordered hover variant="dark">
         <thead>
-          <tr>
-            <th>VICE</th>
-            <th>COST</th>
-            <th>Remove</th>
+          <tr className="cl-table-header">
+            <th className="cl-table-header__text">VICE</th>
+            <th className="cl-table-header__text">COST</th>
+            <th className="cl-table-header__text"></th>
           </tr>
         </thead>
         <tbody>{renderVices()}</tbody>

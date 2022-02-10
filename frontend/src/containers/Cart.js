@@ -21,14 +21,13 @@ class Cart extends React.Component {
     return (
       <React.Fragment>
       <Container className="pt-5 pb-3">
-        <h1>Your Cart of Vices</h1>
+        <h1 className="cart-header">Your Cart of Vices</h1>
         <CartList
           cart={this.props.cart}
           removeVice={this.props.removeViceFromCart}
         />
-        <h5>
-          Total Donation: ${this.props.cartTotal ? this.props.cartTotal : 0} a
-          month
+        <h5 className="cart-total">
+          <span>Total Donation:</span> ${this.props.cartTotal ? this.props.cartTotal : 0} /month
         </h5>
       </Container>
         <Container className="checkoutForm">

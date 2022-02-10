@@ -228,3 +228,50 @@ img.vice-card__img {
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+/* <<<<<<  Cart >>>>>> */
+
+.cart-header {
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.cart-list__row td {
+  border: none;
+}
+td.cl-remove-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.table-dark.table-hover tbody tr.cart-list__row {
+    background: white;
+    border-bottom: 1px solid black;
+}
+.table-dark.table-hover tbody tr:hover {
+    color: black;
+    background-color: rgb(255 255 255 / 95%);
+}
+
+td.cl-col__text {
+    color: black;
+    border-left-color: white !important;
+    vertical-align: middle;
+}
+
+table.cl-table.table.table-dark.table-striped.table-bordered.table-hover {
+    border: 1px solid;
+}
+
+th.cl-table-header__text {
+    border: none;
+}
+
+.cart-total {
+    padding: 30px 0px;
+    text-align: right;
+}
+
+.cart-total span {
+    font-weight: 800;
+}
