@@ -82,7 +82,7 @@ class Signup extends React.Component {
               />
           </Form.Group>
           <div className="d-flex justify-content-center">
-          <Button variant="info" type="submit">Log In </Button>
+          <Button className="gui-btn" variant="info" type="submit">Sign Up</Button>
         </div>
       </Form>
     </div>

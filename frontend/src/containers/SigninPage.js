@@ -5,9 +5,9 @@ class SigninPage extends React.Component {
 
   render() {
     return (
-      <div id="signupForm">
+      <main className="signup-main">
         <Signup />
-      </div>
+      </main>
     )
   }
 }
