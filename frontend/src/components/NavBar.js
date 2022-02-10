@@ -10,7 +10,9 @@ const NavBar = (props) => {
 
   return(
     <Navbar className="nav-bar">
-      <Navbar.Brand>Give it Up</Navbar.Brand>
+      <Navbar.Brand>
+        <Nav.Link className='giu-logo' as={Link} to='/'>Give it Up</Nav.Link>
+      </Navbar.Brand>
         <Nav>
           {props.loggedIn ?
             <Nav.Item>

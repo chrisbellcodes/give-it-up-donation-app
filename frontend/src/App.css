@@ -18,6 +18,10 @@ nav.nav-bar.navbar.navbar-expand.navbar-light {
     padding: 15px 5%;
 }
 
+a.giu-logo.nav-link {
+    color: black;
+    font-weight: 900;
+}
 /* <------- Home Page ----> */
 
 .hero-img {
