@@ -13,7 +13,7 @@ class VicesController < ApplicationController
 
   def create
     vice = Vice.new(vice_params)
-    # byebug
+
     if vice.save
       plan = PlanCreater.call(vice)
       vice.update(stripe_plan_id: plan.index)

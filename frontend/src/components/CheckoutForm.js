@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom'
@@ -8,16 +8,22 @@ import CardSection from './CardSection';
 const CheckoutForm = ({ currentUser, history }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [errorMessage, setErrorMessage] = useState();
+  const [isError, setIsError] = useState(false);
 
   function stripePaymentMethodHandler(result, cart) {
+    // Grabbing my stripe item ids
     const planIds = cart.map(plan => {
       return plan.stripe_plan_id
     });
     
     if (result.error) {
       // Show error in payment form
+      setErrorMessage(result.error);
+      setIsError(true);
+
     } else {
-      // Otherwise send paymentMethod.id to your server
+      // Otherwise send paymentMethod.id to server
       fetch('/subscriptions', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -58,6 +64,7 @@ const CheckoutForm = ({ currentUser, history }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div >{isError ? null : errorMessage}</div>
       <CardSection />
       <div className='btn-container'>
         <button className='giu-btn btn btn-info' type="submit" disabled={!stripe}>

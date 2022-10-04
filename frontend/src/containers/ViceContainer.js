@@ -2,6 +2,7 @@ import React from "react";
 import { getVices } from "../redux/actions/viceActions";
 import { addViceToCart } from "../redux/actions/cartActions";
 import { connect } from "react-redux";
+
 import Vice from "../components/Vice";
 import CreateVice from "../components/CreateVice";
 import Container from "react-bootstrap/Container";
@@ -21,7 +22,7 @@ class ViceContainer extends React.Component {
       .then(categories => {
         this.setState({ categories });
       });
-    this.props.getVices();
+    // this.props.getVices();
   }
 
   handleClick = vice => {

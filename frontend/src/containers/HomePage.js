@@ -1,4 +1,8 @@
 import React from 'react'
+import { getVices } from "../redux/actions/viceActions";
+import { addViceToCart } from "../redux/actions/cartActions";
+import { connect } from "react-redux";
+
 import '../App.css'
 import Login from '../components/Login'
 
@@ -6,6 +10,10 @@ import Login from '../components/Login'
 
 class HomePage extends React.Component {
 
+  componentDidMount() {
+    this.props.getVices();
+  }
+  
   render() {
     return(
       <React.Fragment>
@@ -20,7 +28,6 @@ class HomePage extends React.Component {
           <p className="hero-content__sub-header">
             Every month donate the cost of just one your favorite vices to artist education. 
           </p>
-          <Login />
           </div>
       </div>
 
@@ -30,4 +37,19 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage
+const mapStateToProps = state => {
+  return {
+    vices: state.vices,
+    user: state.currentUser
+  };
+};
+
+const mapDispatchToProps = {
+  getVices: getVices,
+  addViceToCart: addViceToCart
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);

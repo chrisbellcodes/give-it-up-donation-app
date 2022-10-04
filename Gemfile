@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
-gem 'dotenv-rails', groups: [:development, :test]
+ruby '3.0.0'
+gem 'dotenv-rails', '~> 2.8', '>= 2.8.1', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 6.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -15,7 +15,7 @@ gem 'puma', '~> 3.12'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.13'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -23,7 +23,7 @@ gem 'stripe'
 
 #User Auth gems
 gem 'devise'
-gem 'devise-jwt', '~> 0.5.8'
+gem 'devise-jwt', '~> 0.10.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -32,15 +32,15 @@ gem 'devise-jwt', '~> 0.5.8'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.0'
-  gem 'capybara'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'capybara', '~> 3.37', '>= 3.37.1'
   gem 'database_cleaner'
-  gem 'foreman', '~> 0.82.0'
+  gem 'foreman', '~> 0.87.2'
 end
 
 group :development do
