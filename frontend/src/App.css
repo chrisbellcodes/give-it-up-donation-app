@@ -1,6 +1,10 @@
 
 /* <<<<<<<< General >>>>>>> */
-  
+
+:root {
+    --da-blue: #32cef6;
+}
+
 .giu-btn,
 button.gui-btn.btn.btn-info {
     background-color: black;
@@ -33,11 +37,14 @@ a.giu-logo.nav-link {
     color: black;
     font-weight: 900;
 }
+
 /* <------- Home Page ----> */
 
 .hero-img {
     background-position: center;
     min-height: 800px;
+    display: flex;
+    align-items: center;
 }
 
 .hero-content {
@@ -69,6 +76,64 @@ a.giu-logo.nav-link {
     height: 400px;
 }
 
+.hs-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 350px;
+    padding: 30px;
+}
+
+.hs-block__content {
+    max-width: 600px;
+    margin: 44px auto;
+    z-index: 5;
+}
+
+
+.hs-triangle {
+    position: absolute;
+    left: 0;
+}
+
+.about-triangle {
+    bottom: 65%;
+}
+
+.about-triangle--bottom {
+    top: 41%;
+    transform: rotate(180deg);
+}
+
+.hs-block.hs-block--about {
+    background-color: #32cef6;
+    position: relative;
+}
+
+.hs-block.hs-block--mission {
+    background-color: #ceff5b;
+    position: relative;
+}
+
+.hs-triangle.hs-triangle--top {
+    bottom: 76%;
+}
+
+
+.section-header {
+    text-align: center;
+    z-index: 5;
+}
+
+.hs-block.hs-block--popular {
+    min-height: 800px;
+}
+
+
+
+
+
+
 /* <<<<<<<<< Sign up >>>>>>> */
 main.signup-main {
     display: flex;
@@ -85,16 +150,19 @@ main.signup-main {
 }
 
 
+
+
+
 /* <------- Profile page ----> */
 
-#userNameBox {
+/* #userNameBox {
   height: 300px;
   background-color: gray;
   border-radius: 10px;
   text-align: center;
   vertical-align: middle;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
+} */
 
 #userNameBox > div {
   padding: 10px;
@@ -116,7 +184,7 @@ main.signup-main {
 /* <------- Vice Page ----> */
 
 .vice-card.card {
-  max-width: 350px;
+  width: 350px;
   min-height: 275px;
   margin: 15px;
   padding:15px;
@@ -138,7 +206,7 @@ main.signup-main {
 }
 
 .vice-card__img-container {
-    min-width: 125px;
+    width: 125px;
     z-index: 10;
 }
 .vice-card-content {

@@ -14,19 +14,18 @@ const NavBar = (props) => {
         <Nav.Link className='giu-logo' as={Link} to='/'>Give it Up</Nav.Link>
       </Navbar.Brand>
         <Nav>
-          {props.loggedIn ?
+          {/* {props.loggedIn ? */}
             <Nav.Item>
               <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
-            </Nav.Item> : null}
+            </Nav.Item> {/*: null */}
 
           <Nav.Item>
             <Nav.Link as={Link} to='/vices'>Vices</Nav.Link>
           </Nav.Item>
 
-          {!props.loggedIn ? null :
             <Nav.Item>
               <Nav.Link as={Link} to='/cart'>Cart {props.cart.length > 0 ? `(${props.cart.length})` : null}</Nav.Link>
-            </Nav.Item>}
+            </Nav.Item>
 
           {props.loggedIn ? null :
             <Nav.Item >

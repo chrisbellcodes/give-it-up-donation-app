@@ -2,17 +2,16 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import SigninPage from "./containers/SigninPage";
+import SigninPage from "./pages/SigninPage";
 import NavBar from "./components/NavBar";
-import HomePage from "./containers/HomePage";
-import Cart from "./containers/Cart";
-import UserProfile from "./components/UserProfile";
-import ViceContainer from "./containers/ViceContainer";
+import HomePage from "./pages/HomePage";
+import Cart from "./pages/Cart";
+import UserProfile from "./pages/UserProfile";
+import ViceContainer from "./pages/ViceContainer";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-require("dotenv").config();
 const stripePromise = loadStripe("pk_test_Z9iIEsJMJPXWMNnI2ntNh2cc00IsMY5one");
 
 class App extends React.Component {

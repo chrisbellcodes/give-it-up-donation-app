@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import CheckoutForm from '../components/CheckoutForm'
 import Button from 'react-bootstrap/Button'
+import Login from '../components/Login'
 
 
 
@@ -31,6 +32,7 @@ const CheckOutPage = (props) => {
        <Modal.Title className='check-out__header-text'>Check Out</Modal.Title>
      </Modal.Header>
      <Modal.Body className='check-out__body'>
+        <Login />
         <CheckoutForm />
      </Modal.Body>
 

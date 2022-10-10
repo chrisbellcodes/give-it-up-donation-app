@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 const Vice = (props) => {
   console.log(props)
-  const { name, description, amount } = props
+  const { name, amount } = props
 
   return(
     <Card className="vice-card">
@@ -16,7 +16,7 @@ const Vice = (props) => {
         </div>
         <div className="vice-card__info">
           <h2 className="vice-card__name">{name}</h2>
-          <p className="vice-card__desc">{description}</p>
+          {/* <p className="vice-card__desc">{description}</p> */}
         </div>
       </div>
       <div className="vice-card__price-btn-conatiner">

@@ -51,9 +51,9 @@ const mapDispatchToProps = {
   removeViceFromCart: removeViceFromCart
 };
 
-export default withAuth(
-  connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Cart)
-);
+  )(Cart);
+
+  

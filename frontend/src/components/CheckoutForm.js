@@ -58,7 +58,11 @@ const CheckoutForm = ({ currentUser, history }) => {
     });
     
     stripePaymentMethodHandler(result, currentUser.cart);
-     history.push('/profile')
+
+let yas = false;
+    if (yas) {
+      history.push('/profile')
+    }
     
   };
 
