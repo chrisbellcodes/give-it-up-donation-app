@@ -2,9 +2,11 @@ import React from 'react'
 import { getVices } from "../redux/actions/viceActions";
 import { addViceToCart } from "../redux/actions/cartActions";
 import { connect } from "react-redux";
+import Vice from '../components/Vice';
 
 import '../App.css'
 import Login from '../components/Login'
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,6 +15,15 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.getVices();
   }
+
+  renderPopularVices = () => {
+
+    const popularVices = this.props.vices.filter(vice => vice.popular)
+    
+    return popularVices.map(vice => (
+      <Vice key={vice.id} handleClick={this.handleClick} {...vice} />
+    ));
+  };
   
   render() {
     return(
@@ -48,7 +59,12 @@ class HomePage extends React.Component {
         <div className='hs-block hs-block--popular'>
           <h2 className='section-header'>Popular Vices</h2>
           <div className='hs-block__content'>
-            Vices go here!
+            <div className='popular-vices-container'>
+              {this.renderPopularVices()}
+            </div>
+            <div className='hs-button-container'>
+            <Link to="/vices">See More Vices</Link>
+            </div>
           </div>
         </div>
 

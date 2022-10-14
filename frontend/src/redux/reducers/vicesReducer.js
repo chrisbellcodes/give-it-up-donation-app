@@ -6,7 +6,6 @@ const vicesReducer = (state=initialState, action) => {
       return action.vices
     case 'CREATE_VICE_SUCCESS':
       return { ...state, vices: [...state.vices, action.vice]}
-
     default:
       return state
   }

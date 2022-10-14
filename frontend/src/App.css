@@ -38,11 +38,15 @@ a.giu-logo.nav-link {
     font-weight: 900;
 }
 
+.nav-item {
+    margin-left: 25px;
+}
+
 /* <------- Home Page ----> */
 
 .hero-img {
     background-position: center;
-    min-height: 800px;
+    min-height: 600px;
     display: flex;
     align-items: center;
 }
@@ -129,10 +133,18 @@ a.giu-logo.nav-link {
     min-height: 800px;
 }
 
+.hs-block.hs-block--popular .hs-block__content {
+    max-width: 1140px;
+    width: 100%;
+}
 
+.popular-vices-container {
+    display: flex;
+}
 
-
-
+.hs-button-container {
+    text-align: end;
+}
 
 /* <<<<<<<<< Sign up >>>>>>> */
 main.signup-main {
@@ -148,7 +160,6 @@ main.signup-main {
     max-width: 400px;
     max-height: 600px;
 }
-
 
 
 
