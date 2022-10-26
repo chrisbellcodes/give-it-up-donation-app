@@ -1,20 +1,15 @@
 import React from 'react'
-import { getVices } from "../redux/actions/viceActions";
 import { addViceToCart } from "../redux/actions/cartActions";
 import { connect } from "react-redux";
 import Vice from '../components/Vice';
 
 import '../App.css'
-import Login from '../components/Login'
+// import Login from '../components/Login'
 import { Link } from 'react-router-dom';
 
 
 
 class HomePage extends React.Component {
-
-  componentDidMount() {
-    this.props.getVices();
-  }
 
   renderPopularVices = () => {
 
@@ -96,7 +91,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getVices: getVices,
   addViceToCart: addViceToCart
 };
 

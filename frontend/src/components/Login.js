@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
-import withAuth from "../hoc/withAuth"
-import { withRouter, Redirect } from 'react-router-dom'
+// import withAuth from "../hoc/withAuth"
+import { withRouter } from 'react-router-dom'
 import { logIn } from '../redux/actions/userActions'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'

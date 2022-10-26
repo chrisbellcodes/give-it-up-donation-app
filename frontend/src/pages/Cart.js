@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { totalCart } from "../redux/actions/cartActions";
 import { removeViceFromCart } from "../redux/actions/cartActions";
-import withAuth from "../hoc/withAuth";
+
 import CartList from "../components/CartList";
 import Container from "react-bootstrap/Container";
-import CheckoutForm from "../components/CheckoutForm";
+
 import CheckOutPage from "./CheckOutPage";
 
 

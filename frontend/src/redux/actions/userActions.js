@@ -23,7 +23,7 @@ export const logIn = (email, password) => dispatch => {
   })
 }
 
-export const signup = (first_name, last_name, email, password) => dispatch => {
+export const signup = (firebaseUserInfo) => dispatch => {
   dispatch({ type: 'SIGNUP_REQ_START'})
   fetch(`/signup`, {
     method: "POST",
@@ -32,10 +32,7 @@ export const signup = (first_name, last_name, email, password) => dispatch => {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password: password 
+      user: firebaseUserInfo
     })
   }
 )

@@ -12,7 +12,7 @@ const Vice = (props) => {
       <div className="vice-card__bg"></div>
       <div className="vice-card-content">
         <div className="vice-card__img-container">
-          <img className="vice-card__img" src="logo192.png" />
+          <img className="vice-card__img" src="logo192.png" alt='' />
         </div>
         <div className="vice-card__info">
           <h2 className="vice-card__name">{name}</h2>

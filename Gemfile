@@ -20,10 +20,10 @@ gem 'active_model_serializers', '~> 0.10.13'
 # gem 'mini_magick', '~> 4.8'
 
 gem 'stripe'
+gem 'rest-client', '~> 2.1'
 
 #User Auth gems
-gem 'devise'
-gem 'devise-jwt', '~> 0.10.0'
+gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

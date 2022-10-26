@@ -1,15 +1,45 @@
-import React from 'react'
-import Signup from '../components/Signup'
+import React, {useEffect} from 'react';
+import FirebaseSignIn from '../components/FBSignIn'
+import Container from 'react-bootstrap/Container'
 
-class SigninPage extends React.Component {
+import { useNavigate } from "react-router-dom";
 
-  render() {
+// Redux Imports
+import { connect } from 'react-redux'
+
+// Change to a functional component
+// use login flag -> if true redrict to profile page
+
+
+const SigninPage = ({currentUser}) => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(currentUser.loggedIn) {
+      navigate('/vices')
+    }
+  }, [currentUser.loggedIn]);
+
+
     return (
-      <main className="signup-main">
-        <Signup />
-      </main>
+      <Container className="signup-main">
+        <FirebaseSignIn />
+      </Container>
     )
+
+}
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
   }
 }
 
-export default SigninPage
+const mapDispatchToProps = {
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SigninPage)

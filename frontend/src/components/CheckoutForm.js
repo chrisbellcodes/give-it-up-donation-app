@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 
 import CardSection from './CardSection';
 
@@ -86,11 +86,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(
-    connect(
+export default connect(
     mapStateToProps,
     null
   )(CheckoutForm)
-  )
+ 
 
 
