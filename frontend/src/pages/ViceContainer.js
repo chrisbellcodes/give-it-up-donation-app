@@ -26,9 +26,6 @@ class ViceContainer extends React.Component {
   }
 
   handleClick = vice => {
-    if (!this.props.user.loggedIn) {
-      this.props.history.push("/signup");
-    }
     this.props.addViceToCart(vice);
   };
 

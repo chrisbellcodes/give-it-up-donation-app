@@ -2,7 +2,8 @@ class VicesController < ApplicationController
 
   def index
     vices = Vice.all
-    PlanIdAdder.call(vices)
+    # ProductIdAdder.call(vices)
+    # [TODO]: Make sure to check if price exsists. If not get it from Stripe
     render json: vices
   end
 
@@ -12,11 +13,14 @@ class VicesController < ApplicationController
   end
 
   def create
+    # Create a product on stripe first
+      # if success, save to USER vices
+      # if error, show error in console and send back error to client
     vice = Vice.new(vice_params)
 
     if vice.save
-      plan = PlanCreater.call(vice)
-      vice.update(stripe_plan_id: plan.index)
+      product = ProductCreater.call(vice)
+      vice.update(stripe_product_id: product.id)
       render json: vice
     else
       render json: {message: "Ya messed up."}

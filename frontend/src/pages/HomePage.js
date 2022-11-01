@@ -55,7 +55,7 @@ class HomePage extends React.Component {
           <h2 className='section-header'>Popular Vices</h2>
           <div className='hs-block__content'>
             <div className='popular-vices-container'>
-              {this.renderPopularVices()}
+              {/* {this.renderPopularVices()} */}
             </div>
             <div className='hs-button-container'>
             <Link to="/vices">See More Vices</Link>

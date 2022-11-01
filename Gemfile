@@ -21,7 +21,7 @@ gem 'active_model_serializers', '~> 0.10.13'
 
 gem 'stripe'
 gem 'rest-client', '~> 2.1'
-
+gem 'smarter_csv', '~> 1.1', '>= 1.1.4'
 #User Auth gems
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 
