@@ -1,47 +1,19 @@
 import React, { useState } from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
 import { connect } from "react-redux";
-// import { withRouter } from 'react-router-dom'
 
-import CardSection from './CardSection';
 
-const CheckoutForm = ({ currentUser, history }) => {
+const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [errorMessage, setErrorMessage] = useState();
-  const [isError, setIsError] = useState(false);
 
-  function stripePaymentMethodHandler(result, cart) {
-    // Grabbing my stripe item ids
-    const planIds = cart.map(plan => {
-      return plan.stripe_plan_id
-    });
-    
-    if (result.error) {
-      // Show error in payment form
-      setErrorMessage(result.error);
-      setIsError(true);
+  const [error, setError] = useState('')
 
-    } else {
-      // Otherwise send paymentMethod.id to server
-      fetch('/subscriptions', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: currentUser.email,
-          plans: planIds,
-          payment_method: result.paymentMethod.id
-        }),
-      }).then(function (result) {
-        return result.json();
-      }).then(function (data) {
-        // The customer has been created
-      });
-    }
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    console.log('yas')
+    // We don't want to let default form submission happen here,
+    // which would refresh the page.
+    event.preventDefault();
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
@@ -49,33 +21,35 @@ const CheckoutForm = ({ currentUser, history }) => {
       return;
     }
 
-    const result = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
-      billing_details: {
-        email: currentUser.email,
+    const result = await stripe.confirmPayment({
+      //`Elements` instance that was used to create the Payment Element
+      elements,
+      confirmParams: {
+        return_url: "http://localhost:3001/profile",
       },
     });
-    
-    stripePaymentMethodHandler(result, currentUser.cart);
 
-let yas = false;
-    if (yas) {
-      history.push('/profile')
+
+    if (result.error) {
+      // Show error to your customer (for example, payment details incomplete)
+      setError(result.error.message)
+      console.log(result.error.message);
+    } else {
+      console.log(result)
+      // Your customer will be redirected to your `return_url`. For some payment
+      // methods like iDEAL, your customer will be redirected to an intermediate
+      // site first to authorize the payment, then redirected to the `return_url`.
     }
-    
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div >{isError ? null : errorMessage}</div>
-      <CardSection />
-      <div className='btn-container'>
-        <button className='giu-btn btn btn-info' type="submit" disabled={!stripe}>
-          Subscribe
-        </button>
-      </div>
-    </form>
+    <>
+      <p className='CheckoutForm__error-message'>{error}</p>
+      <form className="CheckoutForm" onSubmit={handleSubmit}>
+        <PaymentElement />
+        <button className="CheckoutForm__btn" disabled={!stripe}>Submit</button>
+      </form>
+    </>
   );
 }
 

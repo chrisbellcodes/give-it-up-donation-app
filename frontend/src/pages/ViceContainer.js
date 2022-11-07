@@ -56,6 +56,7 @@ class ViceContainer extends React.Component {
     return (
       <div>
         <Container className="pt-5 pb-5">
+          <h1 className="page-header page-header--vice-list">Give up a Vice</h1>
           <Row>
             <Form className="pr-3">
               <Form.Control

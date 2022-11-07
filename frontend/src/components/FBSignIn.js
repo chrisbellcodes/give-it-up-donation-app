@@ -52,14 +52,15 @@ function FBSignIn({signup}) {
       // Avoid redirects after sign-in.
       signInSuccessWithAuthResult: (authResult, redirectURL) => {
         var firebaseUserData = authResult.user;
-        var credential = authResult.credential;
-        var isNewUser = authResult.additionalUserInfo.isNewUser;
-        var providerId = authResult.additionalUserInfo.providerId;
-        var operationType = authResult.operationType;
+        // var credential = authResult.credential;
+        // var isNewUser = authResult.additionalUserInfo.isNewUser;
+        // var providerId = authResult.additionalUserInfo.providerId;
+        // var operationType = authResult.operationType;
         
         // console.log({user, credential, isNewUser, providerId, operationType})
 
         signup(firebaseUserData)
+        
       },
 
     }

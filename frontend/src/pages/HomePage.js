@@ -2,7 +2,6 @@ import React from 'react'
 import { addViceToCart } from "../redux/actions/cartActions";
 import { connect } from "react-redux";
 import Vice from '../components/Vice';
-
 import '../App.css'
 // import Login from '../components/Login'
 import { Link } from 'react-router-dom';
@@ -10,6 +9,9 @@ import { Link } from 'react-router-dom';
 
 
 class HomePage extends React.Component {
+  handleClick = vice => {
+    this.props.addViceToCart(vice);
+  };
 
   renderPopularVices = () => {
 
@@ -32,8 +34,9 @@ class HomePage extends React.Component {
               Change a life.
             </h1>
             <p className="hero-content__sub-header">
-              Every month donate the cost of just one your favorite vices to artist education. 
+              Every month donate the cost of just one of your favorite vices to artist education. 
             </p>
+            <Link className="btn btn-primary btn--hero-cta" to='/vices'>Give up a Vice Now</Link>
             </div>
             
         </div>
@@ -55,7 +58,7 @@ class HomePage extends React.Component {
           <h2 className='section-header'>Popular Vices</h2>
           <div className='hs-block__content'>
             <div className='popular-vices-container'>
-              {/* {this.renderPopularVices()} */}
+              {this.renderPopularVices()}
             </div>
             <div className='hs-button-container'>
             <Link to="/vices">See More Vices</Link>

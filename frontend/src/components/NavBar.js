@@ -29,13 +29,9 @@ const NavBar = (props) => {
 
           {props.loggedIn ? null :
             <Nav.Item >
-              <Nav.Link as={Link} to='/signin'>Sign Up</Nav.Link>
+              <Nav.Link className='btn btn-primary btn--signin' as={Link} to='/signin'>Sign Up / Login</Nav.Link>
             </Nav.Item>}
 
-          {props.loggedIn ? null :
-            <Nav.Item>
-              <Nav.Link as={Link} to='/'>Login</Nav.Link>
-            </Nav.Item>}
         </Nav>
     </Navbar>
 

@@ -11,10 +11,10 @@ import ViceContainer from "./pages/ViceContainer";
 import { connect } from "react-redux";
 import { getVices } from "./redux/actions/viceActions";
 
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { signup } from "./redux/actions/userActions";
 
-const stripePromise = loadStripe("pk_test_Z9iIEsJMJPXWMNnI2ntNh2cc00IsMY5one");
+export const stripePromise = loadStripe("pk_test_Z9iIEsJMJPXWMNnI2ntNh2cc00IsMY5one");
 
 class App extends React.Component {
 
@@ -24,7 +24,6 @@ class App extends React.Component {
 
   render() {
     return (
-      <Elements stripe={stripePromise}>
         <React.Fragment>
           <NavBar />
 
@@ -37,7 +36,6 @@ class App extends React.Component {
           </Routes>
 
         </React.Fragment>
-      </Elements>
     );
   }
 }
@@ -50,6 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   getVices: getVices,
+  signup: signup
 };
 
 export default connect(

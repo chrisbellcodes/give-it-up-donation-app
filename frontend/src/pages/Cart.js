@@ -22,7 +22,7 @@ class Cart extends React.Component {
     return (
       <React.Fragment>
       <Container className="pt-5 pb-3">
-        <h1 className="cart-header">Your Cart of Vices</h1>
+        <h1 className="page-header page-header--cart">Your Cart of Vices</h1>
         <CartList
           cart={this.props.cart}
           removeVice={this.props.removeViceFromCart}
