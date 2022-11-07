@@ -12,8 +12,10 @@ button.gui-btn.btn.btn-info {
     font-weight: 500;
 }
 
+.btn.btn-primary.btn--hero-cta,
 .giu-btn:hover,
-button.gui-btn.btn.btn-info:hover {
+button.gui-btn.btn.btn-info:hover,
+.btn--signin.btn.btn-primary:hover {
     background-color: white;
     border-color: black;
     color: black;
@@ -26,9 +28,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
 }
 
+h1.page-header {
+    margin-bottom: 65px;
+}
 
-
-
+.btn--signin.btn.btn-primary {
+    color: white;
+    font-weight: 500;
+    transition: all .4s ease;
+}
 
 
 /* <------- NAV BAR ----> */
@@ -64,6 +72,10 @@ a.giu-logo.nav-link {
     color: white;
 }
 
+.hero-content__sub-header {
+    font-size: 22px;
+}
+
 .login-form,
 #signupForm {
     background-color: #FFFFFF;
@@ -78,10 +90,8 @@ a.giu-logo.nav-link {
     flex-direction: column;
 }
 
-.login-form {
-    margin-top: 50px;
-    max-width: 400px;
-    height: 400px;
+.hero-content {
+    z-index: 5;
 }
 
 .hs-block {
@@ -168,32 +178,38 @@ main.signup-main {
 
 
 
-/* <------- Profile page ----> */
-
-/* #userNameBox {
-  height: 300px;
-  background-color: gray;
-  border-radius: 10px;
-  text-align: center;
-  vertical-align: middle;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-} */
-
-#userNameBox > div {
-  padding: 10px;
-  margin: auto;
+/* <<<<<<<<<< Profile page >>>>>>>>>> */
+.profile__stripe-payment-status-message {
+    min-height: 150px;
+    background-color: #d3d3d347;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    margin-bottom: 42px;
 }
 
-#subscriptionBox {
-  text-align: justify;
+.profile__section {
+    margin-bottom: 65px;
 }
 
-.circle {
-  background-color: #FFFFFF;
-  margin: auto;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
+.section-header.section-header--profile {
+    text-align: left;
+}
+
+span.profile__sub-status-text {
+    margin-right: 52px;
+}
+
+.profile__status-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.profile__section-text {
+    font-size: 22px;
+    margin-bottom: 0;
 }
 
 /* <------- Vice Page ----> */
@@ -287,7 +303,7 @@ img.vice-card__img {
   box-shadow: 0px 11px 20px 2px rgba(0, 0, 0, 0.14);
 }
 
-.StripeElement {
+/* .StripeElement {
 
   height: 40px;
   padding: 10px 12px;
@@ -312,7 +328,7 @@ img.vice-card__img {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
-}
+} */
 
 /* <<<<<<  Cart >>>>>> */
 

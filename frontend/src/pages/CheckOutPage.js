@@ -4,40 +4,48 @@ import CheckoutForm from '../components/CheckoutForm'
 import Button from 'react-bootstrap/Button'
 
 import FBSignIn from "../components/FBSignIn";
+
 import { connect } from "react-redux";
+import { createSubscription } from "../redux/actions/subscriptionActions"
+
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "../App";
 
 
 
 const CheckOutPage = (props) => {
 
-  // Modal Show Logic
+  const { currentUser, subscription, createSubscription } = props
+  // For Stripe
+  // const [clientSecret, setClientSecret] = useState("");
+  const options = {
+    clientSecret: subscription.clientSecret,
+  };
+  
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    if(currentUser.stripe_customer_id && currentUser.cart){
+      createSubscription(currentUser)
+    }
+  },[currentUser.loggedIn]);
+
+
+
+  // For Modal
   const [showModal, setShowModal] = useState(false);
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
-
-  /*
-  Conidtional render login and checkout:
-
-    - pull in loggedIn from props
-    - use a useEffect 
-      - watch LoggedIn from redux
-    - if loggedIn show payment info
-    - if !loggedIn show signup /login
-  */
-    // Sign In / Payment show logic
+  
     
-
-
     return (
     <React.Fragment>
 
-    <Button className='check-out-btn' variant="dark" onClick={handleShowModal}>
+    <Button disabled={currentUser.cart ? false : true} className='check-out-btn' variant="dark" onClick={handleShowModal}>
      Check Out
    </Button>
 
    <Modal
     className='checkout-modal'
-      {...props}
       show={showModal}
       onHide={handleCloseModal}
       centered
@@ -46,8 +54,10 @@ const CheckOutPage = (props) => {
        <Modal.Title className='check-out__header-text'>Check Out</Modal.Title>
      </Modal.Header>
      <Modal.Body className='check-out__body'>
-        {!props.currentUser.loggedIn ? <FBSignIn /> : ""}
-        {props.currentUser.loggedIn ?<CheckoutForm /> : ""}
+        {!currentUser.loggedIn ? <FBSignIn /> : ""}
+        {subscription.clientSecret && (<Elements stripe={stripePromise} options={options}>
+          <CheckoutForm />
+        </Elements>)}
      </Modal.Body>
 
    </Modal>
@@ -58,8 +68,13 @@ const CheckOutPage = (props) => {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    subscription: state.subscription
   }
 }
 
-export default connect(mapStateToProps)(CheckOutPage)
+const mapDispatchToProps = {
+  createSubscription: createSubscription,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOutPage)

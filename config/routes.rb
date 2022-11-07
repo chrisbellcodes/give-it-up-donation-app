@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
   post "signup", to: "users#create"
   post "login", to: "users#create"
+  post "profile", to: "users#profile"
+
+  post '/cancel-subscription', to: "subscriptions#cancel"
   resources :users
   resources :categories
   resources :vices

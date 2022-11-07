@@ -1,28 +1,3 @@
-export const logIn = (email, password) => dispatch => {
-  dispatch({ type: 'LOGIN_REQUEST_START'})
-  fetch(`/login`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    "email": email,
-    "password": password
-  })
-}
-)
-.then(res => res.json())
-.then(user => {
-  if(user) {
-      dispatch({
-        type: "PROFILE_SUCCESS",
-        user: user[0]
-      })
-    }
-  })
-}
-
 export const signup = (firebaseUserInfo) => dispatch => {
   dispatch({ type: 'SIGNUP_REQ_START'})
   fetch(`/signup`, {
@@ -38,27 +13,37 @@ export const signup = (firebaseUserInfo) => dispatch => {
 )
   .then(res => res.json())
   .then(user => {
-    console.log("signup data:", user); 
+    console.log("signup data:", user);
+
     if(user) {
+
       dispatch({ 
-        type: "PROFILE_SUCCESS", 
+        type: "SIGNIN_SUCCESS", 
         user: user
       })
     }
   })
 }
-// Not needed because login and signup actions pull user data. 
-// May need to refacter this to update user info after payment.
-    export const getCurrentUser = () => dispatch => { 
-      dispatch({ type: "PROFILE_REQUEST_START" })
-      fetch(`/profile`, {
-        headers: {}
-      })
-        .then(res => res.json())
-        .then(user => {
-          dispatch({
-            type: "PROFILE_SUCCESS",
-            user: user
-          })
-        })
-    }
+
+export const getCurrentUser = (currentUser) => dispatch => { 
+
+  dispatch({ type: "PROFILE_REQUEST_START" })
+
+  fetch(`/profile`,{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      user: currentUser
+    })
+  })
+  .then(res => res.json())
+  .then(user => {
+    dispatch({
+      type: "PROFILE_SUCCESS",
+      user: user
+    })
+  })
+}

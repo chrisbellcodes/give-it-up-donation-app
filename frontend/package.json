@@ -6,8 +6,8 @@
   "dependencies": {
     "@material/card": "^6.0.0",
     "@material/data-table": "^6.0.0",
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.4.0",
+    "@stripe/react-stripe-js": "^1.14.2",
+    "@stripe/stripe-js": "^1.42.1",
     "bootstrap": "^4.3.1",
     "firebase": "^9.12.1",
     "path-browserify": "^1.0.1",
