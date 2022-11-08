@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Give up a vice, change a life.",
   "engines": {
-    "node": ">=12.6.0"
+    "node": "17.3.0"
   },
   "scripts": {
-    "build": "cd frontend && npm install && npm run build && cd ..",
+    "build": "cd frontend && npm install --legacy-peer-deps && npm run build && cd ..",
     "deploy": "cp -a frontend/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Frontend built!'",
     "test": "echo \"Error: no test specified\" && exit 1"
