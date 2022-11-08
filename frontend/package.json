@@ -29,9 +29,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "eslintConfig": {
-    "extends": "wesbos"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
