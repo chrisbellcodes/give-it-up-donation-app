@@ -1,4 +1,4 @@
-class SubscriptionsController < ApplicationController
+class Api::SubscriptionsController < ApplicationController
   
   def create
 

@@ -1,4 +1,4 @@
-class VicesController < ApplicationController
+class Api::VicesController < ApplicationController
 
   def index
     vices = Vice.all
