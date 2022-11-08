@@ -1,4 +1,4 @@
-class PlanCreater < ApplicationService
+class PriceCreater < ApplicationService
     attr_reader :vice
 
     def initialize(vice)
