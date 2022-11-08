@@ -3,7 +3,7 @@
 require 'smarter_csv'
 require 'stripe'
 
-Stripe.api_key = ENV['STRIPE_SECRET']
+Stripe.api_key = Rails.application.credentials.dig(:stripe, :STRIPE_SECRET)
 
 User.destroy_all
 Vice.destroy_all
