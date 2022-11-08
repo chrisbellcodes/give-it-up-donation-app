@@ -9,7 +9,7 @@ class ProductCreater < ApplicationService
 
         product = Stripe::Product.create({
             name: vice.name,
-            description: vice.description
+            description: vice.description,
             default_price: null,
         })
         
