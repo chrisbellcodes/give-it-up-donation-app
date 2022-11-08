@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const Vice = (props) => {
-  console.log(props)
+  
   const { name, amount } = props
 
   return(
