@@ -2,7 +2,7 @@
   "name": "frontend-react-give-it-up-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@material/card": "^6.0.0",
     "@material/data-table": "^6.0.0",
