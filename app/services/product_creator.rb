@@ -1,4 +1,4 @@
-class ProductCreater < ApplicationService
+class ProductCreator < ApplicationService
     attr_reader :vice
 
     def initialize(vice)
