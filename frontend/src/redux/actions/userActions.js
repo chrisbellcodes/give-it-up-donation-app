@@ -1,16 +1,16 @@
 export const signup = (firebaseUserInfo) => dispatch => {
   dispatch({ type: 'SIGNUP_REQ_START'})
-  fetch(`/signup`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      user: firebaseUserInfo
-    })
-  }
-)
+    fetch(`api/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: firebaseUserInfo
+      })
+    }
+  )
   .then(res => res.json())
   .then(user => {
     console.log("signup data:", user);
@@ -29,7 +29,7 @@ export const getCurrentUser = (currentUser) => dispatch => {
 
   dispatch({ type: "PROFILE_REQUEST_START" })
 
-  fetch(`/profile`,{
+  fetch(`api/profile`,{
     method: "POST",
     headers: {
       "Content-Type": "application/json",

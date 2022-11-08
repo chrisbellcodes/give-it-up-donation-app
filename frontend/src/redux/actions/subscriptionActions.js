@@ -3,7 +3,7 @@ export const createSubscription = (currentUser) => dispatch => {
   const priceIds = currentUser.cart.map(vice => {
     return  vice.stripe_price_id
   })
-  fetch('/subscriptions', {
+  fetch('api/subscriptions', {
       method: 'post',
       headers: { 
         'Content-Type': 'application/json',

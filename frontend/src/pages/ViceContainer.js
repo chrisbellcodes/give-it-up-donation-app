@@ -17,7 +17,7 @@ class ViceContainer extends React.Component {
   };
 
   componentDidMount() {
-    fetch("/categories")
+    fetch("api/categories")
       .then(res => res.json())
       .then(categories => {
         this.setState({ categories });

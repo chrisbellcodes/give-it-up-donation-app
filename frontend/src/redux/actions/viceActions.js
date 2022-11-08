@@ -1,5 +1,5 @@
 export const getVices = () => dispatch => {
-  fetch(`/vices`)
+  fetch(`/api/vices`)
     .then((res) => res.json())
     .then((vices) => {
       dispatch({
@@ -10,7 +10,7 @@ export const getVices = () => dispatch => {
 };
 
 export const createNewVice = viceData => dispatch => {
-  fetch(`/vices`, {
+  fetch(`api/vices`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
