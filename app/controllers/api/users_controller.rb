@@ -2,8 +2,9 @@ class Api::UsersController < ApplicationController
   before_action :get_set_user
 
   def create
+
     if @user.stripe_customer_id.nil?
-      customer = CustomerCreater.call(user_params["displayName"], @user.email)
+      customer = CustomerCreater.call(params[:user][:displayName], @user.email)
       @user.update(stripe_customer_id: customer.id)
     end
     if @user.valid? 
@@ -21,9 +22,9 @@ class Api::UsersController < ApplicationController
     def get_set_user
     begin
         token = user_params["stsTokenManager"]["accessToken"]
-        first_name = user_params["displayName"].split(' ').first
-        last_name = user_params["displayName"].split(' ').last
-        
+        first_name = params[:user][:displayName].split(' ').first
+        last_name = params[:user][:displayName].split(' ').last
+
         # If no token from client, stop method 
         if token.nil?
           @user = nil
@@ -34,7 +35,7 @@ class Api::UsersController < ApplicationController
         if User.where(:firebase_id => firebase_id).exists?
           @user = User.where(:firebase_id => firebase_id).first
         else
-          @user = User.new(:firebase_id => firebase_id, :email => user_params["email"], :first_name => first_name, :last_name => last_name)
+          @user = User.new(:firebase_id => firebase_id, :email => params[:user][:email], :first_name => first_name, :last_name => last_name)
           @user.save
           @user
         end

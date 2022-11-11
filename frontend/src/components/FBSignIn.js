@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import { signup } from '../redux/actions/userActions'
 
 
+
 const config = {
   apiKey: "AIzaSyDPAODX6s3UhZGq84bqHlKgkShohth-MCQ",
   authDomain: "give-it-up-app.firebaseapp.com",
@@ -47,7 +48,7 @@ function FBSignIn({signup}) {
         // will reset, clearing any UI. This commonly occurs for error code
         // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
         // occurs. Check below for more details on this.
-        return console.log(error);
+        return console.log({error});
       },
       // Avoid redirects after sign-in.
       signInSuccessWithAuthResult: (authResult, redirectURL) => {
@@ -57,7 +58,7 @@ function FBSignIn({signup}) {
         // var providerId = authResult.additionalUserInfo.providerId;
         // var operationType = authResult.operationType;
         
-        // console.log({user, credential, isNewUser, providerId, operationType})
+        console.log({firebaseUserData})
 
         signup(firebaseUserData)
         
