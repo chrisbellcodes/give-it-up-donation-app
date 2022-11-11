@@ -1,10 +1,10 @@
 import React from 'react';
-import { createRoot } from "react-dom/client";
+import { createRoot } from "react-dom";
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers/rootReducer';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -19,9 +19,9 @@ const root = createRoot(rootElement);
 
 root.render(
   <Provider store={store}>
-      <BrowserRouter >
+      <Router >
           <App />
-      </BrowserRouter>
+      </Router>
   </Provider>
   );
 
