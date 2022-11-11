@@ -17,7 +17,7 @@ const SigninPage = ({currentUser}) => {
 
   useEffect(() => {
     if(currentUser.loggedIn) {
-      // navigate('/vices')
+      navigate('/vices')
     }
   }, [currentUser.loggedIn]);
 
