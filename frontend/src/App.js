@@ -14,7 +14,7 @@ import { getVices } from "./redux/actions/viceActions";
 import { loadStripe } from "@stripe/stripe-js";
 import { signup } from "./redux/actions/userActions";
 
-export const stripePromise = loadStripe('pk_live_riiWJjmYR10Rx4GdJyJYOA6X');
+export const stripePromise = loadStripe(process.env.NODE_ENV !== 'production' ? 'pk_test_2EdgsZXngY4L8onpPDoMb9xb': 'pk_live_riiWJjmYR10Rx4GdJyJYOA6X');
 
 class App extends React.Component {
 
