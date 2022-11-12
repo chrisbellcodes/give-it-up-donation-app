@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 
 import SigninPage from "./pages/SigninPage";
 import NavBar from "./components/NavBar";
@@ -26,15 +27,16 @@ class App extends React.Component {
     return (
         <React.Fragment>
           <NavBar />
-
-          <Routes>
-            <Route exact path="/" element={<HomePage />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/signin" element={<SigninPage />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/vices" element={<ViceContainer />} />
-          </Routes>
-
+          <main className="main">
+            <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/signin" element={<SigninPage />} />
+              <Route path="/profile" element={<UserProfile />} />
+              <Route path="/vices" element={<ViceContainer />} />
+            </Routes>
+            <Footer />
+          </main>
         </React.Fragment>
     );
   }

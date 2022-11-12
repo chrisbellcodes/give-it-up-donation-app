@@ -21,7 +21,7 @@ class Cart extends React.Component {
     this.calculateCartTotal(this.props.cart);
     return (
       <React.Fragment>
-      <Container className="pt-5 pb-3">
+      <Container className="Cart pt-5 pb-3">
         <h1 className="page-header page-header--cart">Your Cart of Vices</h1>
         <CartList
           cart={this.props.cart}
@@ -30,9 +30,10 @@ class Cart extends React.Component {
         <h5 className="cart-total">
           <span>Total Donation:</span> ${this.props.cartTotal ? this.props.cartTotal : 0} /month
         </h5>
-      </Container>
-      <Container className="checkout-btn-container">
-        <CheckOutPage />
+        <div className="checkout-btn-container">
+          <CheckOutPage />
+        </div>
+
       </Container>
       </React.Fragment>
     );

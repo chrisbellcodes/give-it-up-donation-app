@@ -95,7 +95,7 @@ const UserProfile = (props)=> {
   const {email, first_name, last_name, subscriptions} = props.user
 
   return (
-    <Container className="pt-5 pb-5">
+    <Container className="Profile pt-5 pb-5">
       <h1 className='page-header page-header--profile'>Your Profile</h1>
       {message && (<div className="profile__section profile__section--sub-actions">
         <div className='profile__stripe-payment-status-message'>
