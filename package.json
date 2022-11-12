@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Give up a vice, change a life.",
   "engines": {
-    "node": "16.12.2"
+    "node": "16.13.2"
   },
   "scripts": {
     "start": "cd frontend && npm start && cd ..",
