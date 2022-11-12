@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Give up a vice, change a life.",
   "engines": {
-    "node": "17.3.0"
+    "node": "16.12.2"
   },
   "scripts": {
     "start": "cd frontend && npm start && cd ..",
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/chrisbellcodes/give-it-up-donation-app#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "firebase": "^9.12.1"
+    "dotenv": "^8.2.0"
   }
 }

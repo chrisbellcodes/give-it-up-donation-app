@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';

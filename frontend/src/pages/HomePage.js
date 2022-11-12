@@ -45,9 +45,12 @@ class HomePage extends React.Component {
           <svg className='hs-triangle about-triangle' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#32cef6" fill-opacity="1" d="M0,64L1440,288L1440,320L0,320Z"></path>
           </svg>
-          <h2 className='section-header'>What's happening?</h2>
+          <h2 className='section-header'>Give WHAT Up?!</h2>
           <div className='hs-block__content'>
-            <p className='hs-block__text'>Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.</p>
+            <p className='hs-block__text'>
+              Give It Up is a new way to donate. This monthly subscription incentivizes you to abandon that vice (ok - just one a month) you’ve 
+              long been meaning to get rid of while simultaneously putting the cost towards arts education!
+            </p>
           </div>
           <svg className='hs-triangle about-triangle--bottom' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#32cef6" fill-opacity="1" d="M0,64L1440,288L1440,320L0,320Z"></path>
@@ -72,7 +75,15 @@ class HomePage extends React.Component {
           </svg>
           <h2 className='section-header'>About Developing Artists</h2>
           <div className='hs-block__content'>
-            <p className='hs-block__text'>Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.</p>
+              <p className='hs-block__text'>
+                Developing Artists is an incredible team of young artists and activists learning to fight 
+                for positive social change via the practical application of performing arts! We need funds 
+                for space/time/staff/and everything it takes to hone our skills and share our craft. Support 
+                us by supporting yourself. While you give up that monthly pack of cigarettes, or that too too 
+                frequent Micky D’s breakfast, we will be growing bigger, louder, and bolder as a powerful team 
+                and a force to be reckoned with. Thank you for joining our team, your encouragement is like a 
+                megaphone for our voices!
+              </p>
           </div>
 
           <svg className='hs-triangle hs-triangle--bottom' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
