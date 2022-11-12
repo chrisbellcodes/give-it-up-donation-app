@@ -113,7 +113,7 @@ const UserProfile = (props)=> {
         <h2 className='section-header section-header--profile'>Subscriptions: {subscriptions}</h2>
         <div className='profile__status-container'>
           <span className='profile__section-text profile__sub-status-text'>{subStatus}</span>
-          <a className='profile__sub-cancel-btn btn btn-primary' href="https://billing.stripe.com/p/login/test_7sIfZnbAZ6A8cRWaEE" >Cancel</a>
+          <a className='profile__sub-cancel-btn btn btn-primary' href={process.env.NODE_ENV !== 'production' ? "https://billing.stripe.com/p/login/test_7sIg01aBa6W3cKY6oo" : "https://billing.stripe.com/p/login/eVa9Ci1NK6Vq9FucMM"}  >Cancel</a>
         </div>
       </div>
 
