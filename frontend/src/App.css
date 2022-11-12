@@ -116,6 +116,9 @@ div#basic-navbar-nav {
     z-index: 5;
 }
 
+.hs-block__text {
+    font-size: 22px;
+}
 
 .hs-triangle {
     position: absolute;
@@ -123,11 +126,11 @@ div#basic-navbar-nav {
 }
 
 .about-triangle {
-    bottom: 65%;
+    bottom: 98%;
 }
 
 .about-triangle--bottom {
-    top: 41%;
+    top: 98%;
     transform: rotate(180deg);
 }
 
@@ -142,7 +145,7 @@ div#basic-navbar-nav {
 }
 
 .hs-triangle.hs-triangle--top {
-    bottom: 76%;
+    bottom: 98%;
 }
 
 
@@ -152,7 +155,7 @@ div#basic-navbar-nav {
 }
 
 .hs-block.hs-block--popular {
-    min-height: 800px;
+    min-height: 600px;
 }
 
 .hs-block.hs-block--popular .hs-block__content {
@@ -167,6 +170,34 @@ div#basic-navbar-nav {
 .hs-button-container {
     text-align: end;
 }
+
+.navbar-light .navbar-toggler {
+    border-color: transparent;
+}
+
+@media (max-width: 700px) {
+    .hero-img {
+        background-position-y: 25%;
+        min-height: 600px;
+        align-items: unset;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    
+}
+
+@media screen and (min-width: 600px) {
+   .about-triangle {
+        bottom: 75%;
+    }
+    .about-triangle--bottom {
+        top: 68%;
+    }
+}
+
+
+
 
 /* <<<<<<<<< Sign up >>>>>>> */
 main.signup-main {
