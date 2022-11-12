@@ -170,6 +170,7 @@ div#basic-navbar-nav {
 
 .popular-vices-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .hs-button-container {
@@ -189,7 +190,9 @@ div#basic-navbar-nav {
     .hero-content {
         max-width: 100%;
     }
-    
+    .hs-block.hs-block--popular {
+        margin-top: 98px;
+    }
 }
 
 @media screen and (min-width: 600px) {
