@@ -57,8 +57,8 @@ class ViceContainer extends React.Component {
       <div>
         <Container className="pt-5 pb-5">
           <h1 className="page-header page-header--vice-list">Give up a Vice</h1>
-          <Row>
-            <Form className="pr-3">
+          
+            <Form className="Vice__category-select pr-3">
               <Form.Control
                 as="select"
                 value={this.state.filter}
@@ -72,8 +72,8 @@ class ViceContainer extends React.Component {
                 ))}
               </Form.Control>
             </Form>
-            <CreateVice categories={this.state.categories} />
-          </Row>
+            {/* <CreateVice categories={this.state.categories} /> */}
+          
         </Container>
 
         <Container>

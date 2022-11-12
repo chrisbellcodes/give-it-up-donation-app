@@ -24,6 +24,7 @@ const SigninPage = ({currentUser}) => {
 
     return (
       <Container className="signup-main">
+        <h1 className="page-header page-header--signin">Signup / Login</h1>
         <FirebaseSignIn />
       </Container>
     )

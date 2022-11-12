@@ -17,7 +17,6 @@ button.gui-btn.btn.btn-info {
     font-weight: 500;
 }
 
-.btn.btn-primary.btn--hero-cta,
 .giu-btn:hover,
 button.gui-btn.btn.btn-info:hover,
 .btn--signin.btn.btn-primary:hover {
@@ -83,6 +82,7 @@ div#basic-navbar-nav {
 .hero-content__header,
 .hero-content__sub-header {
     color: white;
+    margin-bottom: 30px;
 }
 
 .hero-content__sub-header {
@@ -201,14 +201,29 @@ div#basic-navbar-nav {
     }
 }
 
-
+.btn.btn-primary.btn--hero-cta {
+    background-color: red;
+    border-color: red;
+    color: white;
+        margin-top: 19px;
+    font-size: 22px;
+}
 
 
 /* <<<<<<<<< Sign up >>>>>>> */
+h1.page-header.page-header--signin {
+    text-align: center;
+}
+
+
 main.signup-main {
     /* display: flex; */
     height: 100vh;
     justify-content: center;
+}
+
+.signup-main.container {
+    height: 75vh;
 }
 
 #signupForm {
@@ -262,6 +277,10 @@ span.profile__sub-status-text {
 }
 
 /* <------- Vice Page ----> */
+
+form.Vice__category-select.pr-3 {
+    margin-bottom: 41px;
+}
 
 .vice-card.card {
   width: 350px;

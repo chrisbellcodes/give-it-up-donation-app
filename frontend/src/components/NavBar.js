@@ -10,7 +10,7 @@ import { userInfo } from 'os'
 const NavBar = ({cart, currentUser}) => {
 
   return(
-    <Navbar className="nav-bar" collapseOnSelect expand="sm">
+    <Navbar collapseOnSelect className="nav-bar" expand="lg">
       <Navbar.Brand>
         <Nav.Link className='giu-logo' as={Link} to='/'>Give it Up</Nav.Link>
       </Navbar.Brand>

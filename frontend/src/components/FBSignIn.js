@@ -58,7 +58,7 @@ function FBSignIn({signup}) {
         // var providerId = authResult.additionalUserInfo.providerId;
         // var operationType = authResult.operationType;
         
-        console.log({firebaseUserData})
+        // console.log({firebaseUserData})
 
         signup(firebaseUserData)
         
@@ -69,7 +69,7 @@ function FBSignIn({signup}) {
 
   return (
     <div>
-      <p>Please sign-in:</p>
+      
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
   );
