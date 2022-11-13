@@ -494,7 +494,7 @@ button.CheckoutForm__btn {
 
 /* <<<<<<  Footer >>>>>> */
 .main-footer {
-    background-color: gray;
+    background-color: #353535;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -507,4 +507,16 @@ button.CheckoutForm__btn {
     width: 100%;
 }
 
+.footer-link {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
 
+.Footer__da-logo {
+    max-width: 150px;
+}
+
+.Footer__text {
+    font-size: 12px;
+}
