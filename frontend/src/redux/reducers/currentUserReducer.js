@@ -6,7 +6,6 @@ const initialState = {
   vices: [],
   cart: [],
   stripe_customer_id: '',
-  cartTotal: null,
   loggedIn: false,
   loading: false
 };
@@ -29,8 +28,6 @@ const currentUserReducer = (state = initialState, action) => {
       const cartArray = [...state.cart];
       const filteredArr = cartArray.filter(vice => vice.id !== action.vice.id);
       return { ...state, cart: filteredArr };
-    case "TOTAL_CART":
-      return { ...state, cartTotal: action.cartTotal };
     default:
       return state;
   }

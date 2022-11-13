@@ -43,14 +43,14 @@ class App extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    vices: state.vices,
-    user: state.currentUser
+    // vices: state.vices,
+    // user: state.currentUser
   };
 };
 
 const mapDispatchToProps = {
   getVices: getVices,
-  signup: signup
+  // signup: signup
 };
 
 export default connect(

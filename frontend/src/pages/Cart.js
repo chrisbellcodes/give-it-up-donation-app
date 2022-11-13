@@ -11,14 +11,12 @@ import CheckOutPage from "./CheckOutPage";
 
 class Cart extends React.Component {
   calculateCartTotal = cartItems => {
-    if (this.props.cart.length >= 0) {
-      const total = cartItems.reduce((accum, item) => accum + item.amount, 0);
-      this.props.totalCart(total);
-    }
+      let total = cartItems.reduce((accum, item) => accum + item.amount, 0);
+      return total
   };
 
   render() {
-    this.calculateCartTotal(this.props.cart);
+    
     return (
       <React.Fragment>
       <Container className="Cart pt-5 pb-3">
@@ -27,9 +25,7 @@ class Cart extends React.Component {
           cart={this.props.cart}
           removeVice={this.props.removeViceFromCart}
         />
-        <h5 className="cart-total">
-          <span>Total Donation:</span> ${this.props.cartTotal ? this.props.cartTotal : 0} /month
-        </h5>
+        <h5 className="cart-total"><span>Total Donation:</span> ${this.calculateCartTotal(this.props.cart)} /month</h5>
         <div className="checkout-btn-container">
           <CheckOutPage />
         </div>
@@ -43,12 +39,12 @@ class Cart extends React.Component {
 const mapStateToProps = state => {
   return {
     cart: state.currentUser.cart,
-    cartTotal: state.currentUser.cartTotal
+    // cartTotal: state.currentUser.cartTotal
   };
 };
 
 const mapDispatchToProps = {
-  totalCart: totalCart,
+  // totalCart: totalCart,
   removeViceFromCart: removeViceFromCart
 };
 
