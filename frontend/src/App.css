@@ -128,6 +128,7 @@ div#basic-navbar-nav {
 .hs-triangle {
     position: absolute;
     left: 0;
+    width: 100%;
 }
 
 .about-triangle {
@@ -519,4 +520,5 @@ button.CheckoutForm__btn {
 
 .Footer__text {
     font-size: 12px;
+    text-align: -webkit-center;
 }
