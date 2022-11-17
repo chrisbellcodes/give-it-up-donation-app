@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
+    post "/stripe_webhooks", to: "stripe_webhooks#create"
     post "signup", to: "users#create"
     post "login", to: "users#create"
     post "profile", to: "users#profile"
