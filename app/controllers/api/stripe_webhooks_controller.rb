@@ -1,6 +1,6 @@
 class Api::StripeWebhooksController < ApplicationController
   def create
-    webhook_secret = 'whsec_0c3d2723780f8cee8d4ee82236897c6ae73789ab757442f9f6711062f21560d8'
+    webhook_secret = Rails.application.credentials.dig(:stripe, :WEBHOOK_SECRET)
     payload = request.body.read
 
     if !webhook_secret.empty?
